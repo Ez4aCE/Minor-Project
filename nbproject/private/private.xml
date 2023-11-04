@@ -4,8 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Minor%20Project/Bookinggo/web/TableDisplayer/newjsp.jsp</file>
-            <file>file:/D:/Minor%20Project/Bookinggo/src/java/packone/WorkRegister.java</file>
-            <file>file:/D:/Minor%20Project/Bookinggo/web/forgotpasswordpage1/Register.html</file>
+            <file>file:/D:/Minor%20Project/Bookinggo/web/UserRegistration/Register.html</file>
+            <file>file:/D:/Minor%20Project/Bookinggo/web/UserRegistration/Register.css</file>
+            <file>file:/D:/Minor%20Project/Bookinggo/web/TableDisplayer/USERDETAILS.jsp</file>
+            <file>file:/D:/Minor%20Project/Bookinggo/src/java/MinorProjectBackend/WorkRegister.java</file>
         </group>
     </open-files>
 </project-private>
