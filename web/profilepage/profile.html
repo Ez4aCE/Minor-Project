@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="profilecss.css">
+</head>
+
+<body>
+    <nav>
+        <div class="topnav">
+            <img src="/image/booking-go-logo-PhotoRoom.png-PhotoRoom.png" alt="" style="height: 40px; margin-top: 5px;">
+            <a href="/homep.html">home</a>
+            <a href="/homep.html"> book</a>
+            <a href="#">Help </a>
+            <a href="#"> contact us</a>
+
+            <input type="text" placeholder="Search..">
+
+            <!-- <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="/image/profile-user.png" style="height: 30px;" alt="">
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">my booking</a>
+                    <a href="#">Settings</a>
+                    <a href="#">log out</a>
+                </div>
+            </div> -->
+        </div>
+
+    </nav>
+
+
+<div class="container">
+
+
+<div class="flex">
+
+        <div class="pro">
+            <img src="image/profile-user.png" alt="" class="respon">
+        </div>
+
+
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'London')">profile</button>
+            <button class="tablinks" onclick="openCity(event, 'Paris')">my bookings</button>
+            <button class="tablinks" onclick="openCity(event, 'Paris')">security</button>
+            <button class="tablinks" onclick="openCity(event, 'Tokyo')">my cards</button>
+            <button class="tablinks" onclick="openCity(event, 'Tokyo')">promo code</button>
+            <button class="tablinks" onclick="openCity(event, 'Tokyo')">log out</button>
+        </div>
+
+</div>
+
+
+<div class="result">
+    <div id="London" class="tabcontent">
+        <h3>profile</h3>
+        <label for="">current name -</label>
+        <span>aditya</span>
+        <br>
+        <label for="">change name -</label>
+        <input type="text" name="" id="" placeholder="">
+        <br>
+        <label for="">your email - </label> <span>adc@gmail.com</span>
+    </div>
+
+    <div id="Paris" hidden class="tabcontent">
+        <h3>MY BOOKING</h3>
+        <p></p>
+    </div>
+
+    <div id="Tokyo" hidden class="tabcontent">
+        <h3>SAVED CARDS</h3>
+        <img src="/image/visa.png" alt="" style="margin-left: 50px; height: 60px;">
+    </div>
+</div>
+
+</div>
+
+    <script src="profile.js"></script>
+
+</body>
+
+</html>
