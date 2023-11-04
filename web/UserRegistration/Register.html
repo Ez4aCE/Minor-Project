@@ -1,56 +1,79 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-<body style="background-color: lightblue">
-        <center>
-        <form name="frmRegister" method="POST" action="http://localhost:8080/Bookinggo/WorkRegister">
-        <div>
-            <table border="1" style="width:500px;height:600px">
-                <thead>
-                    <tr><th colspan="2">REGISTRATION FORM</th></tr>
-                </thead>
-                <tbody>
-                      <tr><th style="width:300px">
-                <center><h3>Name</h3></center></th><td><input type="text" name="tbName"/></td></tr>
-                        <tr><th style="width:300px">
-                        <center><h3>SLNO</h3></center></th><td><input type="number" name="tbSLNO"/></td></tr>
-                    <tr><td>Date-Of-Birth</td><td><input type="date" name="tbDOB" required/></td></tr>
-                    <tr><td>Gender</td>
-                        <td>
-                            Male<input type="radio" name="tbGender" value="M"/>
-                            Female<input type="radio" name="tbGender" value="F"/>
-                        </td>
-                    </tr>
-                    <tr><td>Location</td>
-           <td>
-               <select name="ddlCity" required>
-              <option>--------select--------</option>
-              <option value="NEW YORK">NEW YORK</option>
-              <option value="BOSTON">BOSTON</option>
-              <option value="CHICAGO">CHICAGO</option>
-              <option value="DALLAS">DALLAS</option>
-           </select>
-           </td>
-        </tr>                        
-                    <tr><td>
-                            <button type="submit" name="bSubmit">Register</button>
-                        </td>
-                        <td>
-                            <button type="reset" name="bReset">Reset</button>
-                            <button type="button" name="bClose" onclick="window.close();">Close</button>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr><th colspan="2">&copy;Techno kolkata India &trade; Limited &reg;</th></tr>
-                </tfoot>
-            </table>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="Register.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+          <h2>Ragister Yourself</h2>
         </div>
-            </form>
-        </center>
-    </body>
-</html>
+        <form id="form" class="form" method="POST" action="http://localhost:8080/Bookinggo/WorkRegister">
+          <div class="form-control">
+            <label for="username">Username</label>
+            <input type="text" placeholder="" id="username" name="tbUSERNAME"/>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="tbDOB">
+          </div>
+          <div class="form-control">
+            <label for="Gender">Gender:</label>
+             <select name="tbGENDER" required>
+                <option>--------select--------</option>
+                <option value="M"/>Male</option>
+                <option value="F">Female</option>
+                <option value="O">Others</option>
+             </select>
+            </div>
+          <div class="form-control">
+            <label for="location">Location:</label>
+            <select name="ddlCity" required>
+                <option>--------select--------</option>
+                <option value="NEW YORK">NEW YORK</option>
+                <option value="BOSTON">BOSTON</option>
+                <option value="CHICAGO">CHICAGO</option>
+                <option value="DALLAS">DALLAS</option>
+             </select>
+            </div>
+          <div class="form-control">
+            <label for="username">Email</label>
+            <input type="email" placeholder="" id="email" name="tbEMAIL" />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label for="username">Password</label>
+            <input type="password" placeholder="" id="password" name="tbPASSWORD" />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label for="username">Confirm Password</label>
+            <input type="password" placeholder="re-enter" id="password2" />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label for="question">What is you nick name?</label>
+            <input type="text" id="question" name="question">
+          </div>
+          <div class="form-control">
+            <label for="question">Your nick name..!</label>
+            <input type="text" id="question" name="question">
+          </div>
+          <div class="buttons">
+            <input type="submit" class="submit" align="center" value="Submit">
+            <input type="reset" class="submit"  align="center" value="Clear">
+           <input  class="submit"  type="button" name="bClose" onclick="window.close();" value="Close">
+
+          </div>

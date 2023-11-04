@@ -19,7 +19,7 @@ import oracle.jdbc.OraclePreparedStatement;
 
 public class WorkRegister extends HttpServlet 
 {
-    String vSLNO, vNAME, vDOB, vGEN, vCITY;
+    String vUSERNAME, vPASSWORD, vDOB, vGEN, vEMAIL;
     
     // STEP 1: DECLARING ORACLE OBJECTS
     OracleConnection oconn;
@@ -34,17 +34,17 @@ public class WorkRegister extends HttpServlet
             out.println("<title>Servlet WorkRegister</title>");
             out.println("<body>");
             out.println("<h1>Servlet WorkRegister</h1>");
-            vSLNO = request.getParameter("tbSLNO");
-            vNAME = request.getParameter("tbName");
+            vUSERNAME = request.getParameter("tbUSERNAME");
+            vPASSWORD = request.getParameter("tbPASSWORD");
             vDOB = request.getParameter("tbDOB");
-            vGEN = request.getParameter("tbGender");
-            vCITY = request.getParameter("ddlCity");
+            vGEN = request.getParameter("tbGENDER");
+            vEMAIL = request.getParameter("tbEMAIL");
             out.println("<h1>Printing the HTML Form values in this servlet....</h1>");
-            out.println("<h2>SLNO : " + vSLNO + "</h2>");
-            out.println("<h2>NAME : " + vNAME + "</h2>");
+            out.println("<h2>USERNAME : " + vUSERNAME + "</h2>");
+            out.println("<h2>PASSWORD : " + vPASSWORD + "</h2>");
             out.println("<h2>DATE-OF-BIRTH : " + vDOB + "</h2>");
             out.println("<h2>GENDER : " + vGEN + "</h2>");
-            out.println("<h2>CITY : " + vCITY + "</h2>");
+            out.println("<h2>EMAIL : " + vEMAIL + "</h2>");
             try 
             {
                 // STEP 2: REGISTERING THE ORACLE DRIVER WITH THIS SERVLEt
@@ -57,7 +57,7 @@ public class WorkRegister extends HttpServlet
                 // STEP 4: INSTANTIATING THE ORACLE PREPARED STATEMENT OBJECT
                 ops = (OraclePreparedStatement) 
                         oconn.prepareCall
-        ("INSERT INTO STUDENT(SNO,SNAME,SDOB,S,SCITY) values(?,?,?,?,?)");
+        ("INSERT INTO USERDETAILS(USERNAME,PASSWORD,DOB,G,EMAIL) values(?,?,?,?,?)");
                 
                 // STEP 5: CONVERTING JAVA DATE FORMAT TO ORACLE DATE FORMAT
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -66,11 +66,11 @@ public class WorkRegister extends HttpServlet
                 vDOB = sdf1.format(dt);
                 
                 //STEP 6: FILLING UP THE BLANK QUERY PARAMETERS (?)
-                ops.setString(1, vSLNO);
-                ops.setString(2, vNAME);
+                ops.setString(1, vUSERNAME);
+                ops.setString(2, vPASSWORD);
                 ops.setString(3, vDOB);
                 ops.setString(4, vGEN);
-                ops.setString(5, vCITY);
+                ops.setString(5, vEMAIL);
                 
                 // STEP 7: EXECUTING THE QUERY
                 int x = ops.executeUpdate();
