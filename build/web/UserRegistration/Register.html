@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="header">
-          <h2>Ragister Yourself</h2>
+          <h2>Register Yourself</h2>
         </div>
         <form id="form" class="form" method="POST" action="http://localhost:8080/Bookinggo/WorkRegister">
           <div class="form-control">
@@ -27,7 +27,7 @@
             <label for="Gender">Gender:</label>
              <select name="tbGENDER" required>
                 <option>--------select--------</option>
-                <option value="M"/>Male</option>
+                <option value="M">Male</option>
                 <option value="F">Female</option>
                 <option value="O">Others</option>
              </select>
@@ -64,13 +64,20 @@
             <small>Error message</small>
           </div>
           <div class="form-control">
-            <label for="question">What is you nick name?</label>
-            <input type="text" id="question" name="question">
+            <label for="question">Question</label>
+            <select name="ddlCity" required>
+            <option>--------select--------</option>
+            <option value="Your Nick Name ?">Your Nick name?</option>
+            <option value="Your Pet Name">Your Pet name?</option>
+            <option value="Your Hobbie?">Your hobbie</option>
+            <option value="Your Best Friend?">Your Best Friends</option>
+            </select>
           </div>
           <div class="form-control">
-            <label for="question">Your nick name..!</label>
+            <label for="question">Your Answer</label>
             <input type="text" id="question" name="question">
           </div>
+
           <div class="buttons">
             <input type="submit" class="submit" align="center" value="Submit">
             <input type="reset" class="submit"  align="center" value="Clear">
