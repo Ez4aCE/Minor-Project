@@ -1,5 +1,5 @@
 body {
-    background-color: #F3EBF6;
+    background-image: linear-gradient(#2C3E50,#FD746C);
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -9,7 +9,11 @@ body {
     height: 400px;
     margin: 7em auto;
     border-radius: 1.5em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    /* box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+     */
+     box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
 }
 
 .sign {

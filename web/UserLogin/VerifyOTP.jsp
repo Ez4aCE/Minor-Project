@@ -39,7 +39,7 @@ catch(Exception ex)
                 <script>
                     alert("Session was not created!!!");
                     alert("Redirecting for logging==>>");
-                    location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
+                    location.href="/Minor-Project/UserLogin/UserLogin.html";
                 </script>
                 <%  
 }
