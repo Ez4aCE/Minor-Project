@@ -85,7 +85,7 @@ public class ValidateEmails extends HttpServlet {
                     message.setFrom(new InternetAddress(username));
                     message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(vto));
                     message.setSubject(vsubject);
-                    vbody += "\n Click the link below or copy paste in browser address bar";
+                    vbody += "\n Click the link below or copy paste in browser address bar : ";
                     vbody += "http://localhost:8080/Bookinggo/forgotpassword/VerifyQues.jsp?pemail="+vEMAIL;
                     message.setText(vbody);
                     Transport.send(message);
