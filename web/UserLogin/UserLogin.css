@@ -10,7 +10,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #666666;
-  background: #eaeff4;
+  /* background: #eaeff4; */
 }
 
 .wrapper {
@@ -24,14 +24,17 @@ body {
   flex-direction: column;
 }
 
-.container {
+.contain {
   position: relative;
   width: 100%;
   max-width: 600px;
   height: auto;
   display: flex;
   background: #ffffff;
-  box-shadow: 0 0 5px #999999;
+  /* box-shadow: 0 0 5px #999999; */
+  box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
 }
 
 .credit {

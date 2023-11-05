@@ -12,6 +12,18 @@
         <servlet-name>WorkRegister</servlet-name>
         <servlet-class>MinorProjectBackend.WorkRegister</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>sessserve</servlet-name>
+        <servlet-class>MinorProjectBackend.sessserve</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SessServe</servlet-name>
+        <servlet-class>MinorProjectBackend.SessServe</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ValidateEmail</servlet-name>
+        <servlet-class>ValidateEmail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -23,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>WorkRegister</servlet-name>
         <url-pattern>/WorkRegister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sessserve</servlet-name>
+        <url-pattern>/sessserve</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SessServe</servlet-name>
+        <url-pattern>/SessServe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidateEmail</servlet-name>
+        <url-pattern>/ValidateEmail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -7,6 +7,19 @@
     <link href="Register.css" rel="stylesheet">
 </head>
 <body>
+
+  <script>
+    function funClose() {
+      if (window.parent) if (confirm("Closing window......") === true) window.parent.window.close();
+      else if (confirm("Closing window......") === true) window.close();
+    }
+
+  </script>
+
+
+
+
+
     <div class="container">
         <div class="header">
           <h2>Register Yourself</h2>
@@ -81,6 +94,6 @@
           <div class="buttons">
             <input type="submit" class="submit" align="center" value="Submit">
             <input type="reset" class="submit"  align="center" value="Clear">
-           <input  class="submit"  type="button" name="bClose" onclick="window.close();" value="Close">
+           <input  class="submit"  type="button" name="bClose" onclick="funClose();" value="Close">
 
           </div>
