@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #0f0f0f;
+  background-image: linear-gradient(#2C3E50,#FD746C);
   font-family: "Open Sans", sans-serif;
   display: flex;
   align-items: center;
@@ -19,6 +19,10 @@ body {
   overflow: hidden;
   width: 400px;
   max-width: 100%;
+  margin: 10px;
+  box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
 }
 
 .header {

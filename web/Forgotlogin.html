@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login here!!!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function funClose()
+            {
+                if(window.parent) if(confirm("Closing window......") === true)  window.parent.window.close();    
+                else if(confirm("Closing window......") === true) window.close();   
+              }
+             function funChange(checkbox)
+             {
+                 if(checkbox.checked) document.getElementById("bLogin").disabled=false;
+                 else document.getElementById("bLogin").disabled=true;
+             }
+             function funLogin()
+             {
+                 
+                    if(document.getElementById("txtusername").value==="") 
+                 {
+                    document.getElementById("erremail").innerHTML="Email cannot be blank";
+                    return false;
+                 }
+                 else return true;
+                 
+             }
+             function funDown()
+             {
+                 document.getElementById("erremail").innerHTML="";
+             }
+             function funRegis()
+             {
+                 location.href="http://localhost:8080/TestWeb/Pages/Registration.html";
+             }
+                
+        </script>
+    </head>
+    <body style="background-image: url('../Images/Screen/img101.png')">
+        <form method="POST" action="http://localhost:8080/TestWeb/SessServe" name="frmLogin" onsubmit="return funLogin()">
+        <div>
+            <br/><br/><br/><br/>
+            <table border="1" style="font-size: 100%; color:whitesmoke; background-color: black">
+                <thead>
+                    <tr><th colspan="2">AUTHENTICATE YOURSELF</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>USERNAME</td><td><input type="email" name="txtusername" id="txtusername" onkeydown="funDown()"><span id="erremail" style="color:red; font-size: 35%"></span></td></tr>
+                    <tr><td>PASSWORD</td><td><input type="password" name="txtpassword" id="txtpassword"><span id="errpass" style="color:red"></span></td></tr>
+                    <tr><td><input type="checkbox" name="chkterms" onclick="funChange(this)"></td>
+                        <td>Please accept the terms and conditions</td>
+                    </tr>
+                    <tr><td><button type="submit" style="font-size: 50%" disabled id="bLogin">Login</button></td>
+                        <td>
+                            <button type="reset" style="font-size: 50%">Clear</button>
+                            <button type="button" style="font-size: 50%" onclick="funClose()">Close</button>
+                        </td>
+                        <tr>
+                            <td><button type="button" style="font-size: 50%"  id="bRegister" onclick="funRegis()">New User??? Register Yourself!!!</button></td>
+                            <td><a href="http://localhost:8080/TestWeb/Pages/ValidateEmail.html">Forgot Password???</a></td>
+                        </tr>
+                </tbody>
+                <tfoot>
+                    <th  colspan="2"> &copy; TECHNO INDIA TECHNOLOGIES &reg;</th>
+                </tfoot>
+            </table>
+        </div>
+            </form>
+    </body>
+</html>

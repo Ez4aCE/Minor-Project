@@ -18,6 +18,7 @@ body {
     font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     font-size: 23px;
+    text-align: center;
 }
 
 .un {
@@ -43,6 +44,8 @@ margin-top: 20px;
 
 form.form1 {
     padding-top: 10px;
+    /* text-align: center; */
+    
 }
 
 
@@ -100,14 +103,15 @@ span.class1{
     font-family: 'Ubuntu', sans-serif;
     color: #491253;
     font-size: 18px;
-    padding-left: 32%;
+    padding-left: 36%;
+    
 
 }
 span.class2{
     font-family: 'Ubuntu', sans-serif;
     color: #491253;
     font-size: 18px;
-    padding-left: 29%;
+    padding-left: 38%;
 
 }
 
