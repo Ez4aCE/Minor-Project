@@ -22,7 +22,7 @@
                 %>
                 <script>
                     alert("Logged out successfully!!!");
-                    location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
+                    location.href="http://localhost:8080/Bookinggo/UserLogin/UserLogin.html";
                 </script>
                 <%
             }
@@ -36,9 +36,9 @@
         </span>
        
         <h1>THIS IS PAGE 2 AFTER LOGGING IN PROPERLY!</h1>
-        <a href="http://localhost:8080/TestWeb/PageServes/HomePage.jsp">Home</a>
-        <a href="http://localhost:8080/TestWeb/PageServes/SessPage2.jsp">Page 2</a>
-        <a href="http://localhost:8080/TestWeb/PageServes/SessPage3.jsp">Page 3</a>
-        <a href="http://localhost:8080/TestWeb/PageServes/SessPage4.jsp">Page 4</a>
+        <a href="http://localhost:8080/Bookinggo/HomePage/Home.jsp">Home</a>
+        <a href="http://localhost:8080/Bookinggo/useless/SessPage2.jsp">Page 2</a>
+        <a href="http://localhost:8080/Bookinggo/useless/SessPage3.jsp">Page 3</a>
+        <a href="http://localhost:8080/Bookinggo/useless/SessPage4.jsp">Page 4</a>
     </body>
 </html>

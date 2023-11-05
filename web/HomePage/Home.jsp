@@ -67,7 +67,7 @@
                   <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 
                     <li><a href="#">
-                        <img src="/Minor-Project/image/logo.png"
+                        <img src="/Bookinggo/image/logo.png"
                           style="height: 50px; width: 100px;">
                       </a></li>
                     <li><a href="#" class="nav-link px-2 link">home</a></li>
@@ -83,12 +83,12 @@
                   <div class="dropdown text-end" id="login">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                       data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="/Minor-Project/image/profile.png" alt="mdo" width="32" height="32"
+                      <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
                         class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small" >
-                      <li><a class="dropdown-item" href="/Minor-Project/profilepage/profile.html">my bookings</a></li>
-                      <li><a class="dropdown-item" href="/Minor-Project/profilepage/profile.html">Profile</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/profilepage/profile.html">my bookings</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/profilepage/profile.html">Profile</a></li>
                       <li>
                         <hr class="dropdown-divider">
                       </li>
@@ -99,12 +99,12 @@
                   <div class="dropdown text-end" id="logout">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                       data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="/Minor-Project/image/profile.png" alt="mdo" width="32" height="32"
+                      <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
                         class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small" >
-                      <li><a class="dropdown-item" href="/Minor-Project/UserRegistration/Register.html">create new account</a></li>
-                      <li><a class="dropdown-item" href="/Minor-Project/UserLogin/UserLogin.html">log in</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/UserRegistration/Register.html">create new account</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/UserLogin/UserLogin.html">log in</a></li>
                     </ul>
                   </div>
                 </div>
@@ -158,18 +158,18 @@
 
                     <div class="radio">
                       <input type="radio" class="r" name="rado" id="train"><img
-                        src="/Minor-Project/image/train (1).png" alt="" style="height: 30px;">Train
+                        src="/Bookinggo/image/train (1).png" alt="" style="height: 30px;">Train
                       <input type="radio" class="r" name="rado" id="plane"><img
-                        src="/Minor-Project/image/plane.png" alt="" style="height: 25px;">Plane
+                        src="/Bookinggo/image/plane.png" alt="" style="height: 25px;">Plane
                       <input type="radio" class="r" name="rado" id="bus"><img
-                        src="/Minor-Project/image/bus.png" alt="" style="height: 40px;">Bus
+                        src="/Bookinggo/image/bus.png" alt="" style="height: 40px;">Bus
                       <input type="radio" class="r" name="rado" id="car"><img
-                        src="/Minor-Project/image/car.png" alt="" style="height: 40px;">Car
+                        src="/Bookinggo/image/car.png" alt="" style="height: 40px;">Car
                     </div>
 
                     <div class="search">
                       <input type="text" class="form-control" id="from" placeholder="from">
-                      <img src="/Minor-Project/image/next.png" alt="" style="width: 2vw; margin-right: 10px;">
+                      <img src="/Bookinggo/image/next.png" alt="" style="width: 2vw; margin-right: 10px;">
                       <input type="text" class="form-control" id="dest" placeholder="destination">
                       <input type="date" class="form-control" id="dot">
                       <input type="number" class="form-control" id="nop" placeholder="no. of people">
@@ -189,14 +189,14 @@
               <div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="/Minor-Project/image/airplane-4974678_1280.jpg" height="400px" width="50px" class="d-block w-100"
+                    <img src="/Bookinggo/image/airplane-4974678_1280.jpg" height="400px" width="50px" class="d-block w-100"
                       alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="/Minor-Project/image/bus-2546383_1280.jpg" height="400px" width="50px" class="d-block w-100" alt="...">
+                    <img src="/Bookinggo/image/bus-2546383_1280.jpg" height="400px" width="50px" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="/Minor-Project/image/blur-1239439_1280.jpg" height="400px" width="50px" class="d-block w-100" alt="...">
+                    <img src="/Bookinggo/image/blur-1239439_1280.jpg" height="400px" width="50px" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -348,10 +348,10 @@
                 </div>
                 <div class="col-lg-3 pt-4">
 
-                  <img class="img" src="/Minor-Project/image/rupay.png" alt="" style="height: 5vh;">
-                  <img class="img" src="/Minor-Project/image/visa.png" style="height: 6vh; margin-left: 5px;"
+                  <img class="img" src="/Bookinggo/image/rupay.png" alt="" style="height: 5vh;">
+                  <img class="img" src="/Bookinggo/image/visa.png" style="height: 6vh; margin-left: 5px;"
                     alt="">
-                  <img class="img" src="/Minor-Project/image/master.png" alt="">
+                  <img class="img" src="/Bookinggo/image/master.png" alt="">
 
                 </div>
               </div>

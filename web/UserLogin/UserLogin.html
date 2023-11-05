@@ -14,7 +14,7 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
       <!-- css  -->
-      <link rel="stylesheet" href="/Minor-Project/HomePage/hp.css">
+      <link rel="stylesheet" href="http://localhost:8080/Bookinggo/HomePage/hp.css">
 </head>
 
 <body>
@@ -28,20 +28,20 @@
 
     function funLogin() {
 
-      if (document.getElementById("txtusername").value === "") {
-        document.getElementById("erremail").innerHTML = "Email cannot be blank";
+      if (document.getElementById("username").value === "") {
+        document.getElementById("email").innerHTML = "Email cannot be blank";
         return false;
       }
       else return true;
 
     }
     function funDown() {
-      document.getElementById("erremail").innerHTML = "";
+      document.getElementById("email").innerHTML = "";
     }
 
     function funRegis()
     {
-                 location.href="/Minor-Project/UserRegistration/Register.html"         }
+                 location.href="/Bookinggo/UserRegistration/Register.html.html"         }
   </script>
 
 
@@ -57,7 +57,7 @@
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 
         <li><a href="#">
-            <img src="/Minor-Project/image/logo.png"
+            <img src="/Bokkinggo/image/logo.png"
               style="height: 50px; width: 100px;">
           </a></li>
         <li><a href="#" class="nav-link px-2 link">home</a></li>
@@ -73,12 +73,12 @@
       <div class="dropdown text-end" id="logout">
         <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
           data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="/Minor-Project/image/profile.png" alt="mdo" width="32" height="32"
+          <img src="/Bokkinggo/image/profile.png" alt="mdo" width="32" height="32"
             class="rounded-circle">
         </a>
         <ul class="dropdown-menu text-small" >
-          <li><a class="dropdown-item" href="/Minor-Project/UserRegistration/Register.html">create new account</a></li>
-          <li><a class="dropdown-item" href="/Minor-Project/UserLogin/UserLogin.html">log in</a></li>
+          <li><a class="dropdown-item" href="/Bookinggo/UserRegistration/Register.html">create new account</a></li>
+          <li><a class="dropdown-item" href="/Bookinggo/UserLogin/UserLogin.html">log in</a></li>
         </ul>
       </div>
     </div>
@@ -95,20 +95,20 @@
         <div class="login-text">
           <h2>Welcome Back</h2>
           <p>Create your account.<br>It's totally free.</p>
-          <a class="btn" onclick="funRegis()" >Sign Up</a>
+          <a class="btn" href="/Bookinggo/UserRegistration/Register.html" >Sign Up</a>
         </div>
       </div>
       <div class="col-right">
         <div class="login-form">
           <h2>User Login</h2>
-          <form  method="POST" action="/Bookinggo/SessServe" name="frmLogin" onsubmit="return funLogin()">
+          <form  method="POST" action="http://localhost:8080/Bookinggo/SessServe" name="frmLogin" onsubmit="return funLogin()">
             <p>
               <label>Username or email address<span>*</span></label>
-              <input type="text" id="erremail" placeholder="Username or Email" required>
+              <input type="text" id="email" placeholder="Username or Email" required>
             </p>
             <p>
               <label>Password<span>*</span></label>
-              <input type="password" placeholder="Password" required>
+              <input type="password" placeholder="Password" required id="password">
             </p>
             <p>
             <div class="buttons">
@@ -118,9 +118,9 @@
             </div>
             </p>
             <p>
-              <a href="">Forget Password?</a>
+              <a href="/Bookinggo/forgotpassword/ValidEmail.html">Forget Password?</a>
               <br>
-              <a href="/Minor-Project/%20AdminLogin/AdminLogin.html">Admin Login</a>
+              <a href="http://localhost:8080/Bookinggo/%20AdminLogin/AdminLogin.html">Admin Login</a>
             </p>
           </form>
         </div>
@@ -148,10 +148,10 @@
     </div>
     <div class="col-lg-3 pt-4">
 
-      <img class="img" src="/Minor-Project/image/rupay.png" alt="" style="height: 5vh;">
-      <img class="img" src="/Minor-Project/image/visa.png" style="height: 6vh; margin-left: 5px;"
+      <img class="img" src="/Bookinggo/image/rupay.png" alt="" style="height: 5vh;">
+      <img class="img" src="/Bookinggo/image/visa.png" style="height: 6vh; margin-left: 5px;"
         alt="">
-      <img class="img" src="/Minor-Project/image/master.png" alt="">
+      <img class="img" src="/Bookinggo/image/master.png" alt="">
 
     </div>
   </div>

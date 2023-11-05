@@ -18,9 +18,9 @@
              function funLogin()
              {
                  
-                    if(document.getElementById("txtusername").value==="") 
+                    if(document.getElementById("username").value==="") 
                  {
-                    document.getElementById("erremail").innerHTML="Email cannot be blank";
+                    document.getElementById("email").innerHTML="Email cannot be blank";
                     return false;
                  }
                  else return true;
@@ -28,17 +28,17 @@
              }
              function funDown()
              {
-                 document.getElementById("erremail").innerHTML="";
+                 document.getElementById("email").innerHTML="";
              }
              function funRegis()
              {
-                 location.href="http://localhost:8080/TestWeb/Pages/Registration.html";
+                 location.href="http://localhost:8080/Bookinggo/UserRegistration/Register.html";
              }
                 
         </script>
     </head>
     <body style="background-image: url('../Images/Screen/img101.png')">
-        <form method="POST" action="http://localhost:8080/TestWeb/SessServe" name="frmLogin" onsubmit="return funLogin()">
+        <form method="POST" action="http://localhost:8080/Bookinggo/SessServe" name="frmLogin" onsubmit="return funLogin()">
         <div>
             <br/><br/><br/><br/>
             <table border="1" style="font-size: 100%; color:whitesmoke; background-color: black">
@@ -46,8 +46,8 @@
                     <tr><th colspan="2">AUTHENTICATE YOURSELF</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>USERNAME</td><td><input type="email" name="txtusername" id="txtusername" onkeydown="funDown()"><span id="erremail" style="color:red; font-size: 35%"></span></td></tr>
-                    <tr><td>PASSWORD</td><td><input type="password" name="txtpassword" id="txtpassword"><span id="errpass" style="color:red"></span></td></tr>
+                    <tr><td>USERNAME</td><td><input type="email" name="tbEMAIL" id="username" onkeydown="funDown()"><span id="email" style="color:red; font-size: 35%"></span></td></tr>
+                    <tr><td>PASSWORD</td><td><input type="password" name="tbPASSWORD" id="txtpassword"><span id="password" style="color:red"></span></td></tr>
                     <tr><td><input type="checkbox" name="chkterms" onclick="funChange(this)"></td>
                         <td>Please accept the terms and conditions</td>
                     </tr>
@@ -58,7 +58,7 @@
                         </td>
                         <tr>
                             <td><button type="button" style="font-size: 50%"  id="bRegister" onclick="funRegis()">New User??? Register Yourself!!!</button></td>
-                            <td><a href="http://localhost:8080/TestWeb/Pages/ValidateEmail.html">Forgot Password???</a></td>
+                            <td><a href="http://localhost:8080/useless/ValidateEmail.html">Forgot Password???</a></td>
                         </tr>
                 </tbody>
                 <tfoot>

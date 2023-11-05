@@ -34,7 +34,7 @@ public class SessServe extends HttpServlet {
          OracleConnection oconn;
         OraclePreparedStatement ost;
         OracleResultSet ors = null;
-        String vemail, vpass, vname;
+        String vEMAIL, vPASSWORD, vname;
         String vto, vfrom, vcc, vbcc, vsubject, vbody;
 
 
@@ -50,13 +50,13 @@ public class SessServe extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
               
-            vemail = request.getParameter("txtusername");
-            vpass = request.getParameter("txtpassword");
+            vEMAIL = request.getParameter("tbEMAIL");
+            vPASSWORD = request.getParameter("tbPASSWORD");
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@ARINDAM-DELL:1521:ORCL","ARINDAM","BISWAS");
-           ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM USERS where email=? and password=?");
-            ost.setString(1, vemail);
-            ost.setString(2, vpass);
+            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G4PSQO9:1521:orcl","TECHNOK4","DATABASE");
+           ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM USERDETAILS where EMAIL=? and PASSWORD=?");
+            ost.setString(1, vEMAIL);
+            ost.setString(2, vPASSWORD);
             ors = (OracleResultSet) ost.executeQuery();
             if(ors.next()) 
             {
@@ -64,7 +64,7 @@ public class SessServe extends HttpServlet {
                 HttpSession sess = request.getSession(true);
                 sess.setAttribute("fname",vname);
                 // PLS NOTE THAT U CAN IGNORE MANY LINES BELOW IF U R NOT DEALING WITH OTP OR MAIL SENDING
-                vto=vemail;
+                vto=vEMAIL;
                 vsubject="New OTP for Logging in !!!";
                 vbody="Enter the OTP for signing in.";
                 final String username ="arindam.perfect@gmail.com";
@@ -96,11 +96,11 @@ public class SessServe extends HttpServlet {
                      }
                      vbody += "\nYour new OTP is " + x;
                      sess.setAttribute("otp",x);
-                     sess.setAttribute("email",vemail);
+                     sess.setAttribute("EMAIL",vEMAIL);
                      
                     message.setText(vbody);
                     Transport.send(message);
-                    response.sendRedirect("http://localhost:8080/TestWeb/PageServes/VerifyOTP.jsp");
+                    response.sendRedirect("http://localhost:8080/Bookinggo/UserLogin/VerifyOTP.jsp");
                     
             } catch (MessagingException e) {
 
@@ -110,7 +110,7 @@ public class SessServe extends HttpServlet {
             }
             else 
             {
-                response.sendRedirect("http://localhost:8080/TestWeb/Pages/WrongPass.html");
+                response.sendRedirect("http://localhost:8080/Bookinggo/UserLogin/WrongPass.html");
             }
             ost.close();
             oconn.close();

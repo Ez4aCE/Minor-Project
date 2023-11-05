@@ -50,7 +50,7 @@ catch(Exception ex)
                 %>
                 <script>
                     alert("OTP verified successfully!!!");
-                    location.href="http://localhost:8080/TestWeb/PageServes/HomePage.jsp";
+                    location.href="http://localhost:8080/Bookinggo/HomePage/Home.jsp";
                 </script>
                 <%
                 }

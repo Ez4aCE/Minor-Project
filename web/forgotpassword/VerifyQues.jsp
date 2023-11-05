@@ -23,22 +23,22 @@
     </head>
     <body style="background-color: antiquewhite">
          <%!
-            String vemail, vques, vans;
+            String vEMAIL, vQUES, vANS;
             OracleConnection oconn;
           OraclePreparedStatement ost;
           OracleResultSet ors = null;
             %>
         <%
-            vemail = request.getParameter("pemail");
+            vEMAIL = request.getParameter("tbEMAIL");
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@ARINDAM-DELL:1521:ORCL","ARINDAM","BISWAS");
-           ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM USERS where email=?");
-            ost.setString(1, vemail);
+            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G4PSQO9:1521:orcl","TECHNOK4","DATABASE");
+           ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM USERDETAILS where EMAIL=?");
+            ost.setString(1, vEMAIL);
             ors = (OracleResultSet) ost.executeQuery();
             if(ors.next()) 
             {
-                vques = ors.getString("SQUES"); //SQUES IS D COL NAME FOR SECURITY QUES IN UR DB
-                vans = ors.getString("SANS");
+                vQUES = ors.getString("tbQUES"); //SQUES IS D COL NAME FOR SECURITY QUES IN UR DB
+                vANS = ors.getString("tbQUES");
             }
             else
             {
@@ -53,12 +53,12 @@
             oconn.close();
             if(request.getParameter("bVerify")!=null)
             {
-                if(request.getParameter("tbAns").equals(vans))
+                if(request.getParameter("tbANS").equals(vANS))
                 {
                 %>
                 <script>
                     alert("Security Answer verified successfully!!!");
-                    location.href="http://localhost:8080/TestWeb/PageServes/NewPassword.jsp?pemail=<%=vemail%>";
+                    location.href="http://localhost:8080/Bookinggo/forgotpassword/NewPassword.jsp?pemail=<%=vEMAIL%>";
                 </script>
                 <%
                 }
@@ -80,7 +80,7 @@
             }   
             %> 
         <h2>THIS IS SECURITY QUESTION AND ANSWER VERIFICATION PAGE!</h2>
-        <form name="frmSecurity" method="POST" action="http://localhost:8080/TestWeb/PageServes/VerifyQues.jsp?pemail=<%=vemail%>">
+        <form name="frmSecurity" method="POST" action="http://localhost:8080/Bookinggo/forgotpassword/VerifyQues.jsp?pemail=<%=vEMAIL%>">
         <div>
             <table border="1">
                 <thead>
@@ -89,11 +89,11 @@
                 <tbody>
                     <tr>
                         <td>QUESTION</td>
-                        <td><input type="text" size="30" name="tbQues" value="<%=vques%>" readonly /></td>
+                        <td><input type="text" size="30" name="tbQUES" value="<%=vQUES%>" readonly /></td>
                     </tr>
                     <tr>
                         <td>ANSWER</td>
-                        <td><input type="text" size="30" name="tbAns" required/></td>
+                        <td><input type="text" size="30" name="tbANS" required/></td>
                     </tr>
                     
                     <tr>

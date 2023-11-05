@@ -19,7 +19,7 @@ import oracle.jdbc.OraclePreparedStatement;
 
 public class WorkRegister extends HttpServlet 
 {
-    String vUSERNAME, vPASSWORD, vDOB, vGEN, vEMAIL;
+    String vUSERNAME, vPASSWORD, vDOB, vGEN, vEMAIL,vQUES,vANS,vCITY;
     
     // STEP 1: DECLARING ORACLE OBJECTS
     OracleConnection oconn;
@@ -39,12 +39,20 @@ public class WorkRegister extends HttpServlet
             vDOB = request.getParameter("tbDOB");
             vGEN = request.getParameter("tbGENDER");
             vEMAIL = request.getParameter("tbEMAIL");
+            vQUES = request.getParameter("tbQUES");
+            vANS = request.getParameter("tbANS");
+            vCITY = request.getParameter("tbCITY");
+            
             out.println("<h1>Printing the HTML Form values in this servlet....</h1>");
             out.println("<h2>USERNAME : " + vUSERNAME + "</h2>");
             out.println("<h2>PASSWORD : " + vPASSWORD + "</h2>");
             out.println("<h2>DATE-OF-BIRTH : " + vDOB + "</h2>");
             out.println("<h2>GENDER : " + vGEN + "</h2>");
             out.println("<h2>EMAIL : " + vEMAIL + "</h2>");
+            out.println("<h2>QUESTION : " + vQUES + "</h2>");
+            out.println("<h2>ANSWER : " + vANS + "</h2>");
+            out.println("<h2>CITY : " + vCITY + "</h2>");
+            
             try 
             {
                 // STEP 2: REGISTERING THE ORACLE DRIVER WITH THIS SERVLEt
@@ -57,7 +65,7 @@ public class WorkRegister extends HttpServlet
                 // STEP 4: INSTANTIATING THE ORACLE PREPARED STATEMENT OBJECT
                 ops = (OraclePreparedStatement) 
                         oconn.prepareCall
-        ("INSERT INTO USERDETAILS(USERNAME,PASSWORD,DOB,G,EMAIL) values(?,?,?,?,?)");
+        ("INSERT INTO USERDETAILS(USERNAME,PASSWORD,DOB,G,EMAIL,QUES,ANS,CITY) values(?,?,?,?,?,?,?,?)");
                 
                 // STEP 5: CONVERTING JAVA DATE FORMAT TO ORACLE DATE FORMAT
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -71,6 +79,9 @@ public class WorkRegister extends HttpServlet
                 ops.setString(3, vDOB);
                 ops.setString(4, vGEN);
                 ops.setString(5, vEMAIL);
+                ops.setString(6, vQUES);
+                ops.setString(7, vANS);
+                ops.setString(8, vCITY);
                 
                 // STEP 7: EXECUTING THE QUERY
                 int x = ops.executeUpdate();
