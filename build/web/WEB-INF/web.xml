@@ -24,6 +24,10 @@
         <servlet-name>ValidateEmail</servlet-name>
         <servlet-class>ValidateEmail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ValidateEmails</servlet-name>
+        <servlet-class>MinorProjectBackend.ValidateEmails</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ValidateEmail</servlet-name>
         <url-pattern>/ValidateEmail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidateEmails</servlet-name>
+        <url-pattern>/ValidateEmails</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
