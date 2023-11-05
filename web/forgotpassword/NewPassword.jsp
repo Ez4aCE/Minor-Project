@@ -31,7 +31,7 @@
                    vpass = request.getParameter("tpass");
                    vemail = sess.getAttribute("sessemail").toString();
                    DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-                   oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@ARINDAM-DELL:1521:ORCL","ARINDAM","BISWAS");
+                   oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
                    ost =(OraclePreparedStatement) oconn.prepareStatement("update USERS set  PASSWORD=? where EMAIL=?");
                    ost.setString(1, vpass);
                    ost.setString(2, vemail);
