@@ -42,7 +42,7 @@
             oconn = 
                     (OracleConnection)
                     DriverManager.getConnection
-        ("jdbc:oracle:thin:@DESKTOP-G4PSQO9:1521:orcl","TECHNOK4","DATABASE");
+        ("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
             
             // STEP 6: INSTANTIATING THE STATEMENT OBJECT
             ops = (OraclePreparedStatement)oconn.prepareCall("select * from USERDETAILS");

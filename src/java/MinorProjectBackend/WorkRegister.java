@@ -60,7 +60,7 @@ public class WorkRegister extends HttpServlet
                 
                 // STEP 3: INSTANTIATING THE ORACLE CONNECTION OBJECT
                 oconn = (OracleConnection) DriverManager.getConnection
-        ("jdbc:oracle:thin:@DESKTOP-G4PSQO9:1521:orcl","TECHNOK4","DATABASE");
+        ("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
                 
                 // STEP 4: INSTANTIATING THE ORACLE PREPARED STATEMENT OBJECT
                 ops = (OraclePreparedStatement) 

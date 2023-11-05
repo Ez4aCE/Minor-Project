@@ -55,7 +55,7 @@ public class ValidateEmails extends HttpServlet {
             out.println("");
             vEMAIL = request.getParameter("tbEMAIL");
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G4PSQO9:1521:orcl","TECHNOK4","DATABASE");
+            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:orcl","TECHNOK4","DATABASE");
            ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM USERDETAILS where EMAIL=?");
             ost.setString(1, vEMAIL);
             ors = (OracleResultSet) ost.executeQuery();
@@ -89,7 +89,7 @@ public class ValidateEmails extends HttpServlet {
                     vbody += "http://localhost:8080/Bookinggo/forgotpassword/VerifyQues.jsp?pemail="+vEMAIL;
                     message.setText(vbody);
                     Transport.send(message);
-                    response.sendRedirect("http://localhost:8080/Bookinggo/forgotpassword/ForgotClose.html");
+                    response.sendRedirect("/Bookinggo/forgotpassword/ForgotClose.html");
                     
             } catch (MessagingException e) {
 
