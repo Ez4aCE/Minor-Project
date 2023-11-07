@@ -103,12 +103,12 @@
           <h2>User Login</h2>
           <form  method="POST" action="http://localhost:8080/Bookinggo/SessServe" name="frmLogin" onsubmit="return funLogin()">
             <p>
-              <label>Username or email address<span>*</span></label>
-              <input type="text" id="email" placeholder="Username or Email" required>
+              <label>email address<span>*</span></label>
+              <input type="text" id="email" placeholder="Enter Email" name="EMAIL" required>
             </p>
             <p>
               <label>Password<span>*</span></label>
-              <input type="password" placeholder="Password" required id="password">
+              <input type="password" placeholder="Password" required id="password" name="PASSWORD">
             </p>
             <p>
             <div class="buttons">

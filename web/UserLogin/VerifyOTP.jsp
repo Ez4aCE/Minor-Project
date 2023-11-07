@@ -28,7 +28,7 @@
 {
             if(sess!=null) 
             {
-                vname = sess.getAttribute("fname").toString();
+                vname = sess.getAttribute("uname").toString();
                 votp = sess.getAttribute("otp").toString();
                 vemail = sess.getAttribute("email").toString();
             }
