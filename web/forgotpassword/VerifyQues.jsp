@@ -29,7 +29,7 @@
           OracleResultSet ors = null;
             %>
         <%
-            vEMAIL = request.getParameter("tbEMAIL");
+            vEMAIL = request.getParameter("EMAIL");
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
             oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
            ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM USERDETAILS where EMAIL=?");
@@ -37,8 +37,8 @@
             ors = (OracleResultSet) ost.executeQuery();
             if(ors.next()) 
             {
-                vQUES = ors.getString("tbQUES"); //SQUES IS D COL NAME FOR SECURITY QUES IN UR DB
-                vANS = ors.getString("tbQUES");
+                vQUES = ors.getString("QUES"); //SQUES IS D COL NAME FOR SECURITY QUES IN UR DB
+                vANS = ors.getString("ANS");
             }
             else
             {
@@ -58,7 +58,7 @@
                 %>
                 <script>
                     alert("Security Answer verified successfully!!!");
-                    location.href="http://localhost:8080/Bookinggo/forgotpassword/NewPassword.jsp?pemail=<%=vEMAIL%>";
+                    location.href="http://localhost:8080/Bookinggo/forgotpassword/NewPassword.jsp?EMAIL=<%=vEMAIL%>";
                 </script>
                 <%
                 }
@@ -80,7 +80,7 @@
             }   
             %> 
         <h2>THIS IS SECURITY QUESTION AND ANSWER VERIFICATION PAGE!</h2>
-        <form name="frmSecurity" method="POST" action="http://localhost:8080/Bookinggo/forgotpassword/VerifyQues.jsp?pemail=<%=vEMAIL%>">
+        <form name="frmSecurity" method="POST" action="http://localhost:8080/Bookinggo/forgotpassword/VerifyQues.jsp?EMAIL=<%=vEMAIL%>">
         <div>
             <table border="1">
                 <thead>
@@ -114,3 +114,4 @@
             </form>
     </body>
 </html>
+

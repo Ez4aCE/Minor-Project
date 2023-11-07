@@ -50,25 +50,25 @@ public class SessServe extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
               
-            vEMAIL = request.getParameter("tbEMAIL");
-            vPASSWORD = request.getParameter("tbPASSWORD");
+            vEMAIL = request.getParameter("EMAIL");
+            vPASSWORD = request.getParameter("PASSWORD");
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G4PSQO9:1521:orcl","TECHNOK4","DATABASE");
+            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
            ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM USERDETAILS where EMAIL=? and PASSWORD=?");
             ost.setString(1, vEMAIL);
             ost.setString(2, vPASSWORD);
             ors = (OracleResultSet) ost.executeQuery();
             if(ors.next()) 
             {
-                vname = ors.getString("FIRSTNAME");
+                vname = ors.getString("USERNAME");
                 HttpSession sess = request.getSession(true);
-                sess.setAttribute("fname",vname);
+                sess.setAttribute("uname",vname);
                 // PLS NOTE THAT U CAN IGNORE MANY LINES BELOW IF U R NOT DEALING WITH OTP OR MAIL SENDING
                 vto=vEMAIL;
                 vsubject="New OTP for Logging in !!!";
                 vbody="Enter the OTP for signing in.";
-                final String username ="arindam.perfect@gmail.com";
-                final String password = "comzcgthgicisvwz";
+                final String username ="bookinggominorproject@gmail.com";
+                final String password = "naqcjyqrqnhkuqrk";
                 Properties props = new Properties();
                 props.put("mail.smtp.auth", "true");
                 props.put("mail.smtp.starttls.enable", "true");

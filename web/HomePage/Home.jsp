@@ -152,9 +152,10 @@
 
 
               <!-- from of ticket-->
+              
               <div class="row justify-content-evenly pt-4 pb-3 mt-4 mb-5 ">
                 <div class="col-lg-10" id="cont-form">
-                  <form action="" class="formm">
+                    <form action="http://localhost:8080/Bookinggo/TrainDetails" class="formm" method="POST">
 
                     <div class="radio">
                       <input type="radio" class="r" name="rado" id="train"><img
@@ -168,12 +169,12 @@
                     </div>
 
                     <div class="search">
-                      <input type="text" class="form-control" id="from" placeholder="from">
+                        <input type="text" class="form-control" id="from" placeholder="from" name="departure">
                       <img src="/Bookinggo/image/next.png" alt="" style="width: 2vw; margin-right: 10px;">
-                      <input type="text" class="form-control" id="dest" placeholder="destination">
-                      <input type="date" class="form-control" id="dot">
-                      <input type="number" class="form-control" id="nop" placeholder="no. of people">
-                      <button type="button" class="btn btn-danger">search</button>
+                      <input type="text" class="form-control" id="dest" placeholder="destination" name="arrival">
+                      <input type="date" class="form-control" id="dot" name="date">
+                      <input type="number" class="form-control" id="nop" placeholder="no. of people" name="nop">
+                      <button type="submit" class="btn btn-danger">search</button>
                     </div>
 
 

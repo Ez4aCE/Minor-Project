@@ -53,7 +53,7 @@ public class ValidateEmails extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("");
-            vEMAIL = request.getParameter("tbEMAIL");
+            vEMAIL = request.getParameter("EMAIL");
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
             oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
            ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM USERDETAILS where EMAIL=?");
@@ -86,7 +86,7 @@ public class ValidateEmails extends HttpServlet {
                     message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(vto));
                     message.setSubject(vsubject);
                     vbody += "\n Click the link below or copy paste in browser address bar : ";
-                    vbody += "http://localhost:8080/Bookinggo/forgotpassword/VerifyQues.jsp?pemail="+vEMAIL;
+                    vbody += "http://localhost:8080/Bookinggo/forgotpassword/VerifyQues.jsp?EMAIL="+vEMAIL;
                     message.setText(vbody);
                     Transport.send(message);
                     response.sendRedirect("/Bookinggo/forgotpassword/ForgotClose.html");

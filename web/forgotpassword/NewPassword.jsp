@@ -14,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Password Reset Page</title>
     </head>
-    <body style="background-image: url('../Images/Screen/img101.png')">
+    <body>
          <%!
             String vemail, vpass;
             OracleConnection oconn;
@@ -43,7 +43,7 @@
                     <script>
                     alert("Password reset successfully!!! You can now login using your new password");
                     alert("Redirecting for logging==>>");
-                    location.href="http://localhost:8080/TestWeb/Pages/ForgotLogin.html";
+                    location.href="http://localhost:8080/UserLogin/UserLogin.html";
                 </script>
                 <%  
                 }
