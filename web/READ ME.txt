@@ -118,7 +118,8 @@ VALUES (22, 'SWIFT', 'patna', 'delhi',TO_DATE('01-Dec-2023', 'DD-Mon-YYYY') ,15,
 
 
 
-TO_TIMESTAMP('2023-11-08 14:30:00', 'YYYY-MM-DD HH24:MI:SS')
+commit;
+
 
 
 
