@@ -45,15 +45,31 @@ public class TrainDetails extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         date = request.getParameter("date");
+//         date = request.getParameter("date");
+         response.setContentType("text/html;charset=UTF-8");
+         try (PrintWriter out = response.getWriter()) {
+             
+         out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ValidateEmail</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("");
          departureStation = request.getParameter("departure");
          arrivalStation = request.getParameter("arrival");
 
          trainDetails = fetchTrainDetails(date, departureStation, arrivalStation);
 
         request.setAttribute("trainDetails", trainDetails);
-        request.getRequestDispatcher("/Bookinggo/TicketSearch/TrainDetails.jsp").forward(request, response);
-   
+//        request.getRequestDispatcher("/Bookinggo/TicketSearch/TrainDetails.jsp").forward(request, response);
+        response.sendRedirect("/Bookinggo/TicketSearch/TrainDetails.jsp");
+
+        out.println("</body>");
+        out.println("</html>");
+        out.println("</body>");
+        out.println("</html>");
+         }
         
     }
     
@@ -64,176 +80,26 @@ public class TrainDetails extends HttpServlet {
         try  {
             
         DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
-           ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM AVAILABLETRAINS WHERE LTIME = ? AND DEPSTATION = ? AND ARRSTATION = ?");    
-            
-            
-            
-                ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM AVAILABLETRAINS WHERE LTIME = ? AND DEPSTATION = ? AND ARRSTATION = ?");
-                ost.setString(1, date);
-            ost.setString(2, departureStation);
-            ost.setString(3, arrivalStation);
-
-                
-                    ors = (OracleResultSet) ost.executeQuery();
+        oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");    
+        ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM AVAILABLETRAINS WHERE DEPSTATION=? AND ARRSTATION=?");
+//            ost.setString(1, date);
+        ost.setString(1, departureStation);
+        ost.setString(2, arrivalStation);
+        ors = (OracleResultSet) ost.executeQuery();
+        
                     if (ors.next()) {
-                         result = "TRAINID" + ors.getInt("TRAINID") + "<br>";
+                        result = ors.getString("TRAINNAME");
                     }
-                
+                ost.close();
+                oconn.close();
             
         } catch (SQLException e) {
             // Handle database exceptions
-            e.printStackTrace();
+            Logger.getLogger(ValidateEmails.class.getName()).log(Level.SEVERE, null, e);
+//            e.printStackTrace();
         }
 
         return result;
     }
     
-    
-    
-
-    
-//    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>ticket filter</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("");
-//            
-//        String date = request.getParameter("date");
-//        String departureStation = request.getParameter("departure");
-//        String arrivalStation = request.getParameter("arrival");
-//            DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-//            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
-//           ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM AVAILABLETRAINS WHERE LTIME = ? AND DEPSTATION = ? AND ARRSTATION = ?");
-//            ost.setString(1, date);
-//            ost.setString(2, departureStation);
-//            ost.setString(3, arrivalStation);
-//                    
-//            
-//                 
-//            ors = (OracleResultSet) ost.executeQuery();
-//            if(ors.next()) 
-//            {
-//        String trainDetails = "TRAINID" + ors.getString("TRAINID") + "<br>";
-//        request.setAttribute("trainDetails", trainDetails);
-//        request.getRequestDispatcher("/Bookinggo/TicketSearch/TrainDetails.jsp").forward(request, response);
-////        response.sendRedirect("/Bookinggo/TicketSearch/TrainDetails.jsp");
-//                
-//            }
-//            else 
-//            {
-//                response.sendRedirect("http://localhost:8080/Bookinggo/forgotpassword/WrongEmail.html");
-//            }
-//            ost.close();
-//            oconn.close();
-//            out.println("</body>");
-//            out.println("</html>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }     catch (SQLException ex) {
-//                  Logger.getLogger(ValidateEmails.class.getName()).log(Level.SEVERE, null, ex);
-//              }
-//    }
-    
-    
-    
-
-
-   
-    
-    
-    
-  
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-     
-//    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet TrainDetails</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet TrainDetails at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
-//    }
-//
-//    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-//    /**
-//     * Handles the HTTP <code>GET</code> method.
-//     *
-//     * @param request servlet request
-//     * @param response servlet response
-//     * @throws ServletException if a servlet-specific error occurs
-//     * @throws IOException if an I/O error occurs
-//     */
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        processRequest(request, response);
-//    }
-//
-//    /**
-//     * Handles the HTTP <code>POST</code> method.
-//     *
-//     * @param request servlet request
-//     * @param response servlet response
-//     * @throws ServletException if a servlet-specific error occurs
-//     * @throws IOException if an I/O error occurs
-//     */
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        processRequest(request, response);
-//    }
-//
-//    /**
-//     * Returns a short description of the servlet.
-//     *
-//     * @return a String containing servlet description
-//     */
-//    @Override
-//    public String getServletInfo() {
-//        return "Short description";
-//    }// </editor-fold>
-
 }

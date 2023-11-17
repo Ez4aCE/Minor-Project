@@ -39,10 +39,7 @@
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
             
             // STEP 5: INSTANTIATING TH             E CONNECTION
-            oconn = 
-                    (OracleConnection)
-                    DriverManager.getConnection
-        ("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
+            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
             
             // STEP 6: INSTANTIATING THE STATEMENT OBJECT
             ops = (OraclePreparedStatement)oconn.prepareCall("select * from USERDETAILS");

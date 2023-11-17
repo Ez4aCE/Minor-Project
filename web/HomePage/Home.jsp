@@ -70,7 +70,7 @@
                         <img src="/Bookinggo/image/logo.png"
                           style="height: 50px; width: 100px;">
                       </a></li>
-                    <li><a href="#" class="nav-link px-2 link">home</a></li>
+                    <li><a href="/Bookinggo/HomePage/Home.jsp" class="nav-link px-2 link">home</a></li>
                     <li><a href="#" class="nav-link px-2 link">book</a></li>
                     <li><a href="#" class="nav-link px-2 link">help</a></li>
                     <li><a href="#" class="nav-link px-2 link">about us</a></li>
@@ -148,24 +148,40 @@
               <hr>
 
 
-
+              <script type="text/javascript">
+                function OnSubmitForm()
+                {
+                  if(document.myform.rado[0].checked == true)
+                  {
+                    document.myform.action ="fill.jsp";
+                  }
+                  else
+                  if(document.myform.rado[1].checked == true)
+                  {
+                    document.myform.action ="CarSearch.jsp";
+                  }
+                  return true;
+                }
+                </script>
+              
 
 
               <!-- from of ticket-->
               
               <div class="row justify-content-evenly pt-4 pb-3 mt-4 mb-5 ">
                 <div class="col-lg-10" id="cont-form">
-                    <form action="http://localhost:8080/Bookinggo/TrainDetails" class="formm" method="POST">
+                  <form class="formm" method="POST" onsubmit="return OnSubmitForm();" name="myform">
 
                     <div class="radio">
-                      <input type="radio" class="r" name="rado" id="train"><img
+                      <input type="radio" class="r form-check-input" name="rado" id="train"><img
                         src="/Bookinggo/image/train (1).png" alt="" style="height: 30px;">Train
-                      <input type="radio" class="r" name="rado" id="plane"><img
+                        <input type="radio" class="r form-check-input" name="rado" id="car"><img
+                          src="/Bookinggo/image/car.png" alt="" style="height: 40px;">Car
+
+                      <input type="radio" class="r form-check-input" name="rado" id="plane" disabled> <img
                         src="/Bookinggo/image/plane.png" alt="" style="height: 25px;">Plane
-                      <input type="radio" class="r" name="rado" id="bus"><img
+                      <input type="radio" class="r form-check-input" name="rado" id="bus" disabled><img
                         src="/Bookinggo/image/bus.png" alt="" style="height: 40px;">Bus
-                      <input type="radio" class="r" name="rado" id="car"><img
-                        src="/Bookinggo/image/car.png" alt="" style="height: 40px;">Car
                     </div>
 
                     <div class="search">
@@ -182,6 +198,7 @@
                 </div>
               </div>
 
+           
 
 
 
@@ -223,21 +240,21 @@
                 <div class="col-lg-5 mt-4" id="con">
                   <h3 class="pb-4" style="text-align: center;">CONTACT FORM</h3>
                   <form>
-                    <div class="mb-3">
+                    <div class="mb-3 mt-4">
                       <label for="exampleInputname1" class="form-label">Enter name</label>
                       <input type="text" class="form-control" id="exampleInputname1">
 
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 mt-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>
                       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                       <label for="exampleFormControlTextarea1" class="form-label">Type message</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                    </div> -->
 
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">

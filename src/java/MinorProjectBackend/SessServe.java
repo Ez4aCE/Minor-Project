@@ -35,7 +35,9 @@ public class SessServe extends HttpServlet {
         OraclePreparedStatement ost;
         OracleResultSet ors = null;
         String vEMAIL, vPASSWORD, vname;
-        String vto, vfrom, vcc, vbcc, vsubject, vbody;
+        String vto, vfrom, vcc, vbcc, vsubject, vbody, sname,EMAIL,otp;
+        int x;
+        HttpSession sess;
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -49,20 +51,21 @@ public class SessServe extends HttpServlet {
             out.println("<title>Servlet SessServe</title>");            
             out.println("</head>");
             out.println("<body>");
-              
+
+            
+            sess = request.getSession(true);
             vEMAIL = request.getParameter("EMAIL");
             vPASSWORD = request.getParameter("PASSWORD");
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-            oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
-           ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM USERDETAILS where EMAIL=? and PASSWORD=?");
+  oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
+  ost =(OraclePreparedStatement) oconn.prepareStatement("SELECT * FROM USERDETAILS where EMAIL=? and PASSWORD=?");
             ost.setString(1, vEMAIL);
             ost.setString(2, vPASSWORD);
             ors = (OracleResultSet) ost.executeQuery();
             if(ors.next()) 
             {
                 vname = ors.getString("USERNAME");
-                HttpSession sess = request.getSession(true);
-                sess.setAttribute("uname",vname);
+                sess.setAttribute("sname",vname);
                 // PLS NOTE THAT U CAN IGNORE MANY LINES BELOW IF U R NOT DEALING WITH OTP OR MAIL SENDING
                 vto=vEMAIL;
                 vsubject="New OTP for Logging in !!!";
@@ -89,7 +92,7 @@ public class SessServe extends HttpServlet {
                     message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(vto));
                     message.setSubject(vsubject);
                     Random random = new Random();
-                     int x = 0;
+                     x = 0;
                      while(x < 1000)
                      {
                          x = random.nextInt(9999);
