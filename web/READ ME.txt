@@ -132,8 +132,11 @@ CREATE TABLE ADMINDETAILS(
     ID NUMBER PRIMARY KEY,
     ADMINNAME VARCHAR2(20) NOT NULL,
     PASSWORD VARCHAR2(50) NOT NULL,
-    EMAIL VARCHAR2(50) NOT NULL,
+    EMAIL VARCHAR2(100) NOT NULL
 );
+
+INSERT INTO ADMINDETAILS
+VALUES (1, 'ADMIN', 'PASSWORD', 'bookinggominorproject@gmail.com');
 
 
 ------------------------------------booked tickets details -------------------------------

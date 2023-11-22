@@ -11,15 +11,18 @@
 <body>
   <div class="main">
     <p class="sign" >Admin Login</p>
-    <form class="form1">
-        <span class="class1"> Admin Login</span>
-      <input class="un " type="text" text-align="center" placeholder="User Name">
+    <form class="form1" action="/Bookinggo/AdminLogin/adminlogin.jsp" method="POST">
+      <span class="class1"> Admin Name</span>
+      <input class="un " type="text" text-align="center" placeholder="User Name" name="adminname">
       <span class=" class2"> Password</span>
-      <input class="un " type="password" text-align="center" placeholder="Enter password">
+      <input class="un " type="password" text-align="center" placeholder="Enter password" name="password">
+      
+      
       <div class="buttons">
-      <input type="submit" class="submit" text-align="center" value="Submit">
+      <input type="submit" class="submit" text-align="center"    value="Submit">
       <input type="reset" class="submit"  text-align="center" value="Clear">
      <input type="submit" class="submit" text-align="center" value=" Close" >
+     
     </div>
 
     </form>

@@ -46,11 +46,6 @@
                 SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
                 date = sdf1.format(dt);
     
-   
-
-    
-   
-    
     
     // Retrieve payment information from the request
     String cardNumber = request.getParameter("cardNumber");

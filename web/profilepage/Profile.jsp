@@ -173,13 +173,6 @@
             </tfoot>
         </table>
                     
-                           
-        
-        
-        
-        
-        
-        
         
         
         
@@ -204,9 +197,13 @@
 
     <div id="logout" hidden class="tabcontent">
         <h3>CLICK BELOW TO LOGOUT </h3>
+        
+       
+        
         <form action="http://localhost:8080/Bookinggo/SessLogOut" method="post">
             <button type="submit">click here</button>
         </form>
+
 
     </div>
 </div>

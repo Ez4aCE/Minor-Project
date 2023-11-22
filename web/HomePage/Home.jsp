@@ -189,7 +189,7 @@
                       <img src="/Bookinggo/image/next.png" alt="" style="width: 2vw; margin-right: 10px;">
                       <input type="text" class="form-control" id="dest" placeholder="destination" name="arrival">
                       <input type="date" class="form-control" id="dot" name="date">
-                      <input type="number" class="form-control" id="nop" placeholder="no. of people" name="nop">
+                      <!--<input type="number" class="form-control" id="nop" placeholder="no. of people" name="nop">-->
                       <button type="submit" class="btn btn-danger">search</button>
                     </div>
 

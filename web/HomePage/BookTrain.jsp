@@ -41,7 +41,9 @@
     trainId = Integer.parseInt(trainIds);
     
     String nops = request.getParameter("nop");
-    nop = Integer.parseInt(nops);
+//    nop = Integer.parseInt(nops);
+        nop = 1;
+
     
     
      DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
