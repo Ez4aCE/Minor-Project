@@ -1,49 +1,37 @@
-<%-- 
-    Document   : adminlogin
-    Created on : Nov 23, 2023, 12:35:09 AM
-    Author     : ryben(aditya)
---%>
-
 <%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>admin profile</title>
+    <title>Admin Profile</title>
 </head>
 <body>
 
-<%  String adminname, email;
+<%
+    String name = null, email = null;
     HttpSession admin = request.getSession(false);
-    try {
-            if(admin!=null){
-            adminname = admin.getAttribute("sname").toString();
-            %>
-                <script>
-                    
-                var name =  
-                document.getElementById('login').style.display = "none";
-                       
-                </script>
-                
-            <%   
-            }
-          } catch(Exception ex) { %>
-          <script>
-            alert("you are not logged in!!!");
-            document.getElementById('logout').style.display = "none";
 
-             alert("Redirecting for logging==>>");
-             location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
-          </script>
-          <%
- 
+    if (admin != null) {
+        try {
+            name = (String) admin.getAttribute("aname");
+            email = (String) admin.getAttribute("email");
+        } catch (Exception ex) {
+            // Handle any exceptions here (e.g., logging)
+        }
+    } else { %>
+        <script>
+            alert("You are not logged in!!!");
+            location.href = "http://localhost:8080/Bookinggo/AdminLogin/Adminlogin.html";
+        </script>
+<% } %>
 
-    adminname = admin.getAttribute("aname").toString();
-    email = admin.getAttribute("email").toString();
+<%
+    if (name != null) { // Display content only if the user is logged in
 %>
-
-<h2>Welcome<%=adminname%></h2>
-<p>Your role is</p>
+    <h2>Welcome <%= name %> </h2>
+    <p>Your role is</p>
+<%
+    }
+%>
 
 </body>
 </html>

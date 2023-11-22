@@ -24,8 +24,8 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
       <!-- css  -->
-      <link rel="stylesheet" href="hp.css">
-      <link rel="stylesheet" href="booktra.css">
+      <link rel="stylesheet" href="http://localhost:8080/Bookinggo/HomePage/hp.css">
+      <link rel="stylesheet" href="http://localhost:8080/Bookinggo/HomePage/booktra.css">
 </head>
 <body>
 
@@ -37,10 +37,10 @@
             String date, departureStation, arrivalStation, trainName ;
             int  trainId,trainPrice,avaseat,totalseat,nop;
     // Retrieve the selected train ID from the request
-    String trainIds = request.getParameter("trainId");
-    trainId = Integer.parseInt(trainIds);
+    String carIds = request.getParameter("carId");
     
-    String nops = request.getParameter("nop");
+    
+//    String nops = request.getParameter("nop");
 //    nop = Integer.parseInt(nops);
         nop = 1;
 
@@ -52,8 +52,8 @@
             oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
             
             // STEP 6: INSTANTIATING THE STATEMENT OBJECT
-            ops = (OraclePreparedStatement)oconn.prepareCall("SELECT * FROM AVAILABLETRAINS WHERE TRAINID = ?");
-              ops.setString(1, trainIds);
+            ops = (OraclePreparedStatement)oconn.prepareCall("SELECT * FROM AVAILABLECAR WHERE CARID = ?");
+              ops.setString(1, carIds);
             
             // STEP 7: FILLING UP THE DATABASE RECORDS IN A TEMPORARY CONTAINER
             ors = (OracleResultSet)ops.executeQuery();
@@ -73,21 +73,21 @@
     
     if (ors.next()) {
         // Retrieve details of the selected train
-        trainName = ors.getString("TRAINNAME");
-        departureStation = ors.getString("DEPSTATION");
-        arrivalStation = ors.getString("ARRSTATION");
+        String carname = ors.getString("CARMODEL");
+        String uloc = ors.getString("YOURLOC");
+        String destination = ors.getString("DESTINATION");
         date = ors.getString("TRAVELDATE");
-        trainPrice = ors.getInt("PRICE");
-        avaseat = ors.getInt("AVASEAT");
-        totalseat = ors.getInt("TOTALSEAT");
+        int rentPrice = ors.getInt("PRICE");
+        int avacars = ors.getInt("AVACARS");
+        totalseat = ors.getInt("NOSEAT");
 
         // Display the details or process the booking as needed
 
         
         
         
-      if(avaseat > 0 && nop > 0 && nop <= avaseat){
-         int navaseat = avaseat-nop;
+      if(avacars > 0 && nop > 0 && nop <= avacars){
+         int navacars = avacars-nop;
         
  %>           
     
@@ -180,13 +180,7 @@
           
 <div class="container mt-4" id="conbook">          
           
-<!--    <h1>Booking Details</h1>
-        <p>Departure Station: <%= departureStation %></p>
-        <p>Arrival Station: <%= arrivalStation %></p>
-        <p>Travel Date: <%= date %></p>
-        <p>Available seat: <%= avaseat %></p>
-        <p>Total seat: <%= totalseat %></p>        
-        <p>Price: <%= trainPrice %></p>  -->
+
           
  <div class="row g-5" id="booked" >
      
@@ -198,33 +192,41 @@
         <ul class="list-group mb-3">
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">Train name</h6>
+              <h6 class="my-0">Car name</h6>
               <small class="text-body-secondary"></small>
             </div>
-            <span class="text-body-secondary"><%= trainName%></span>
+            <span class="text-body-secondary"><%= carname %></span>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">Departure Station:</h6>
+              <h6 class="my-0">Your Location:</h6>
               <small class="text-body-secondary"></small>
             </div>
-            <span class="text-body-secondary"><%= departureStation %></span>
+            <span class="text-body-secondary"><%= uloc %></span>
           </li>
           
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">Arrival Station: </h6>
+              <h6 class="my-0">Destination: </h6>
               <small class="text-body-secondary"></small>
             </div>
-            <span class="text-body-secondary"><%= arrivalStation %></span>
+            <span class="text-body-secondary"><%= destination %></span>
           </li> 
           
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">Available seat: </h6>
+              <h6 class="my-0">no. of seat: </h6>
               <small class="text-body-secondary"></small>
             </div>
-            <span class="text-body-secondary"><%= avaseat %></span>
+            <span class="text-body-secondary"><%= totalseat %></span>
+          </li>
+          
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Available cars: </h6>
+              <small class="text-body-secondary"></small>
+            </div>
+            <span class="text-body-secondary"><%= avacars %></span>
           </li>
           
            <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -237,14 +239,14 @@
           
           <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
             <div class="text-success">
-              <h6 class="my-0">Price: </h6>
+              <h6 class="my-0">Rent Price: </h6>
               <small></small>
             </div>
-            <span class="text-success">₹<%= trainPrice %></span>
+            <span class="text-success">₹<%= rentPrice %></span>
           </li>
           <li class="list-group-item d-flex justify-content-between">
             <span>Total (RS)</span>
-            <strong>₹<%= trainPrice %></strong>
+            <strong>₹<%= rentPrice %></strong>
           </li>
         </ul>
 
@@ -262,13 +264,13 @@
      
       <div class="col-md-7 col-lg-8 mb-4">
         <h2 class="mb-3 text-light">BOOKING DETAILS</h2>
-        <form class="needs-validation" novalidate="" method="post" action="ProcessPayment.jsp">
+        <form class="needs-validation" novalidate="" method="post" action="http://localhost:8080/Bookinggo/TicketSearch/ProcessPaymentcar.jsp">
             
-            <input type="hidden" name="trainId" value="<%=trainId%>">
+            <input type="hidden" name="carId" value="<%=carIds%>">
              <input type="hidden" name="nop" value="<%=nop%>">
-            <input type="hidden" name="navaseat" value="<%=navaseat%>">
-             <input type="hidden" name="totalvaseat" value="<%=totalseat%>">
-             <input type="hidden" name="trainPrice" value="<%=trainPrice%>">
+             <input type="hidden" name="navacars" value="<%=navacars%>">            
+             <input type="hidden" name="noseat" value="<%=totalseat%>">
+             <input type="hidden" name="rentPrice" value="<%=rentPrice%>">
             <input type="hidden" name="userid" value="<%=userid%>">
             <input type="hidden" name="date" value="<%=date%>">
             
@@ -378,34 +380,12 @@
 
 
           
-<!-- 
- 
-                      
-                        
-                        
-                        
-                         Payment Form 
-            <form method="post" action="ProcessPayment.jsp">  Create a new JSP for payment processing 
-                <input type="hidden" name="trainId" value="<%=trainId%>">
-                <input type="hidden" name="nop" value="<%=nop%>">
-                <input type="hidden" name="navaseat" value="<%=navaseat%>">
-                <input type="hidden" name="totalvaseat" value="<%=totalseat%>">
-                <input type="hidden" name="trainPrice" value="<%=trainPrice%>">
-                
-               
 
-                 Include additional fields for payment information 
-                <label for="cardNumber">Card Number:</label>
-                <input type="text" id="cardNumber" name="cardNumber" required>
-                 Include other payment-related fields 
-
-                <button type="submit">Proceed to Payment</button>
-            </form>-->
                      
             
 <%            
              } else {
-            out.println("<p>Error: no availabe seat sorry.....</p>");                   
+            out.println("<p>Error: no availabe cars sorry.....</p>");                   
                 }
        
         %>
@@ -414,7 +394,7 @@
 <%
     } else {
         // Handle the case when the train details are not found
-        out.println("<p>Error: Train details not found.</p>");
+        out.println("<p>Error:cars details not found.</p>");
     }
 
     // Close resource
