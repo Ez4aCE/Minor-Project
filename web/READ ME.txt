@@ -137,7 +137,7 @@ CREATE TABLE ADMINDETAILS(
 
 
 ------------------------------------booked tickets details -------------------------------
-    CREATE SEQUENCE TICKETID_SEQ
+CREATE SEQUENCE TICKETID_SEQ
         START WITH 1
         INCREMENT BY 1
         NOCACHE

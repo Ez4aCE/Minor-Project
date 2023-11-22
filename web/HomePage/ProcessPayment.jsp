@@ -14,6 +14,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.*"%>
 <%@page import ="javax.servlet.http.HttpSession" %>
+<%@page import= "java.util.Date" %>
 <%@page import= "java.text.SimpleDateFormat" %>
 
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -40,17 +41,12 @@
     String userid = request.getParameter("userid");
     date = request.getParameter("date");
     
-    // Replace this line with the actual date format used in your database
-SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
-
-// Retrieve the date string from the request
-//String travelDateStr = request.getParameter("travelDate");
-
-// Parse the date string to java.util.Date
-Date travelDate = sdf.parse(date);
-
-// Use the parsed date in your SQL query
-ops.setDate(6, new java.sql.Date(travelDate.getTime()));
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date dt = sdf.parse(date);
+                SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
+                date = sdf1.format(dt);
+    
+   
 
     
    
@@ -93,12 +89,14 @@ ops.setDate(6, new java.sql.Date(travelDate.getTime()));
             oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
              
             // STEP 6: INSTANTIATING THE STATEMENT OBJECT
-              ops = (OraclePreparedStatement)oconn.prepareCall("INSERT INTO BOOKEDTRAINS (ID, PASSNAME, CARDNUMBER, TRAINID, TRAVELDATE, FARE, SEATNO) VALUES (?, ?, ?, ?,?,?,?)");
+              ops = (OraclePreparedStatement)oconn.prepareCall("INSERT INTO BOOKEDTRAINS (TICKETID, ID, PASSNAME, CARDNUMBER, TRAINID, TRAVELDATE, FARE, SEATNO) VALUES (TICKETID_SEQ.NEXTVAL,?, ?, ?, ?,?,?,?)");
               ops.setString(1, userid);
               ops.setString(2, name);
               ops.setString(3, cardNumber);
               ops.setString(4, trainIds);
               ops.setString(5, date);
+
+
 
               ops.setInt(6, trainPrice);
 //              int assignedSeat = assignSeat(trainIds);
