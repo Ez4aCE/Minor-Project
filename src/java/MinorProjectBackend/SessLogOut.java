@@ -26,9 +26,9 @@ public class SessLogOut extends HttpServlet {
             out.println("<title>Servlet SessLogout</title>");            
             out.println("</head>");
             out.println("<body>");
-            HttpSession sess = request.getSession(false);
-            sess.invalidate();
-            response.sendRedirect("http://localhost:8080/TestWeb/Pages/SignOut.html");
+            HttpSession se = request.getSession(false);
+            se.invalidate();
+            response.sendRedirect("http://localhost:8080/Bookinggo/HomePage/Home.jsp");
             out.println("</body>");
             out.println("</html>");
         }

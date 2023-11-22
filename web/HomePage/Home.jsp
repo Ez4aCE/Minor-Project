@@ -1,12 +1,12 @@
 <%-- Document : Home Created on : Nov 5, 2023, 1:05:00 AM Author : ryben(aditya) --%>
-
+  <%@page import ="javax.servlet.http.HttpSession" %>
   <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <!DOCTYPE html>
     <html>
 
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Bootstrap demo</title>
+      <title>BookingGo</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -17,41 +17,13 @@
       <link rel="stylesheet" href="hp.css">
     </head>
 
-    <body>
-
-
-
-      <%! String vname; %>
-        <% HttpSession sess=request.getSession(false); try { if(sess!=null) vname=sess.getAttribute("fname").toString();
-          } catch(Exception ex) { %>
-          <script>
-            alert("you are not logged in!!!");
-            // alert("Redirecting for logging==>>");
-            // location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
-          </script>
-          <% } %>
-
-
-
-
-
-            <!-- <span style="align-content: flex-end">
-            Welcome <%=vname%> . <a href="http://localhost:8080/TestWeb/SessLogout">Sign out</a>
-        </span>
-       
-        <h1>THIS IS HOME PAGE AFTER LOGGING IN PROPERLY!</h1>
-        <a href="http://localhost:8080/TestWeb/PageServes/HomePage.jsp">Home</a>
-        <a href="http://localhost:8080/TestWeb/PageServes/SessPage2.jsp">Page 2</a>
-        <a href="http://localhost:8080/TestWeb/PageServes/SessPage3.jsp">Page 3</a>
-        <a href="http://localhost:8080/TestWeb/PageServes/SessPage4.jsp">Page 4</a> -->
-
-
-       
-
+    <body>            
+      
         
-          
-
-
+        
+        
+        
+        
 
             <!-- navbar -->
 
@@ -80,23 +52,24 @@
                     <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
                   </form>
 
-                  <div class="dropdown text-end" id="login">
+                  <div class="dropdown text-end" id="logout">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                       data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
                         class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small" >
+                         
                       <li><a class="dropdown-item" href="/Bookinggo/profilepage/profile.html">my bookings</a></li>
                       <li><a class="dropdown-item" href="/Bookinggo/profilepage/profile.html">Profile</a></li>
                       <li>
                         <hr class="dropdown-divider">
                       </li>
-                      <li><a class="dropdown-item" href="#">log out</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8080/Bookinggo/SessLogOut">log out</a></li>
                     </ul>
                   </div>
 
-                  <div class="dropdown text-end" id="logout">
+                  <div class="dropdown text-end" id="login">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                       data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
@@ -110,6 +83,33 @@
                 </div>
               </div>
             </header>
+            
+            
+            
+            <%! String vname; %>
+        <% HttpSession se=request.getSession(false);
+        try {
+            if(se!=null){
+            vname = se.getAttribute("sname").toString();
+            %>
+                <script>
+                    
+//                var name =  <%=vname%>;
+                document.getElementById('login').style.display = "none";
+                       
+                </script>
+                
+            <%   
+            }
+          } catch(Exception ex) { %>
+          <script>
+//            alert("you are not logged in!!!");
+            document.getElementById('logout').style.display = "none";
+
+            // alert("Redirecting for logging==>>");
+            // location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
+          </script>
+          <% } %>
 
 
 
@@ -120,7 +120,7 @@
               <!-- tagline -->
               <div class="row">
                 <div class="col-12">
-                  <h3 class="display-6 text-center mt-4 mb-2 text-light "> welcome to booking go <br> Your first step to
+                    <h3 class="display-6 text-center mt-4 mb-2 text-light "> welcome to booking go <br> Your first step to
                     future destination
                   </h3>
                 </div>
@@ -393,19 +393,8 @@
               integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
               crossorigin="anonymous"></script>
 
-              <script>
-      
-                var name = '<%=vname%>';
               
-                if( name == 'null'){
-                  document.getElementById('login').style.display = "none";
-      
-                }else{
-                  document.getElementById('logout').style.display = "none";
-                }
-      
-      
-              </script>
+        
 
 
 

@@ -15,7 +15,7 @@ Created on : Nov 8, 2023, 11:37:03 PM
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Record Displayer</title>
+        <title>TRAIN DETAILS</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -33,20 +33,23 @@ Created on : Nov 8, 2023, 11:37:03 PM
             OracleResultSet ors;
             OracleResultSetMetaData orsmd;
             int counter, reccounter, colcounter;
-            String date, departureStation, arrivalStation, trainName ;
+            String date, departureStation, arrivalStation, trainName,nop ;
             int  trainId,trainPrice;
         %>
         <%
             
             departureStation = request.getParameter("departure");
             date = request.getParameter("date");
+            nop = request.getParameter("nop");
             
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 Date dt = sdf.parse(date);
                 SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
                 date = sdf1.format(dt);
-//         vemail = sess.getAttribute("sessemail").toString();
+//         
             arrivalStation = request.getParameter("arrival"); 
+            
+            
             // STEP 4: REGISTRATION OF ORACLE DRIVER
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
             
@@ -66,46 +69,94 @@ Created on : Nov 8, 2023, 11:37:03 PM
             %>
             <body>
 
+                
+
 <header class="p-3  border-bottom " id="nav">
-            <div class="container">
+              <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-                  <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                  <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
                       <use xlink:href="#bootstrap"></use>
                     </svg>
-                </a>
-                
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    
-                  <li><a href="#">
-                      <img src="/Bookinggo/image/logo.png"
-                        style="height: 50px; width: 100px;">
-                    </a></li>
-                  <li><a href="/Bookinggo/HomePage/Home.jsp" class="nav-link px-2 link">home</a></li>
-                  <li><a href="#" class="nav-link px-2 link">book</a></li>
-                  <li><a href="#" class="nav-link px-2 link">help</a></li>
-                  <li><a href="#" class="nav-link px-2 link">about us</a></li>
-                </ul>
-          
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                  <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                </form>
-          
-                <div class="dropdown text-end" id="logout">
-                  <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
-                      class="rounded-circle">
                   </a>
-                  <ul class="dropdown-menu text-small" >
-                    <li><a class="dropdown-item" href="/Bookinggo/UserRegistration/Register.html">create new account</a></li>
-                    <li><a class="dropdown-item" href="/Bookinggo/UserLogin/UserLogin.html">log in</a></li>
+
+                  <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+                    <li><a href="#">
+                        <img src="/Bookinggo/image/logo.png"
+                          style="height: 50px; width: 100px;">
+                      </a></li>
+                    <li><a href="/Bookinggo/HomePage/Home.jsp" class="nav-link px-2 link">home</a></li>
+                    <li><a href="#" class="nav-link px-2 link">book</a></li>
+                    <li><a href="#" class="nav-link px-2 link">help</a></li>
+                    <li><a href="#" class="nav-link px-2 link">about us</a></li>
                   </ul>
+
+                  <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                  </form>
+
+                  <div class="dropdown text-end" id="logout">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
+                        class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" >
+                         
+                      <li><a class="dropdown-item" href="/Bookinggo/profilepage/profile.html">my bookings</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/profilepage/profile.html">Profile</a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="http://localhost:8080/Bookinggo/SessLogOut">log out</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown text-end" id="login">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
+                        class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" >
+                      <li><a class="dropdown-item" href="/Bookinggo/UserRegistration/Register.html">create new account</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/UserLogin/UserLogin.html">log in</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-</header>
+            </header>
+            
+            
+            
+            <%! String vname; %>
+        <% HttpSession se=request.getSession(false);
+        try {
+            if(se!=null){
+            vname = se.getAttribute("sname").toString();
+            %>
+                <script>
+                    
+//                var name =  <%=vname%>;
+                document.getElementById('login').style.display = "none";
+                       
+                </script>
+                
+            <%   
+            }
+          } catch(Exception ex) { %>
+          <script>
+//            alert("you are not logged in!!!");
+            document.getElementById('logout').style.display = "none";
 
+            // alert("Redirecting for logging==>>");
+            // location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
+          </script>
+          <% } %>
+                
+                
+                
 
 
 <div class="container-fluid">
@@ -147,9 +198,15 @@ Created on : Nov 8, 2023, 11:37:03 PM
                         <%
                             }
                         %>
-                    <td>
-                        <button class="btn btn-danger">book</button>
-                        </td>
+                   <td>
+    <form method="post" action="BookTrain.jsp"> <!-- Create a new JSP for booking -->
+        <input type="hidden" name="trainId" value="<%=ors.getString("TRAINID")%>">
+        <input type="hidden" name="nop" value="<%=nop%>">
+
+        <button type="submit" class="btn btn-danger">Book</button>
+    </form>
+</td>
+
                 </tr>
                 <%
                     }
@@ -171,12 +228,16 @@ Created on : Nov 8, 2023, 11:37:03 PM
            </div>             
            
            
+                
+                
+                
+                
            
  <!-- footer  -->
  <div class="row justify-content-evenly bg-dark text-white pt-3 pb-5">
     <div class="col-lg-3 pt-4">
       <h5 class="pb-2">Booking go</h5>
-      <p> booking go is the world's largest online ticket booking service trusted by over 1 million happy
+      <p> booking go is the world's top rated online ticket booking service trusted by over 1 million happy
         customers globally. we offer ticket booking through our website, iOS and Android mobile apps for all
         major routes. </p>
     </div>

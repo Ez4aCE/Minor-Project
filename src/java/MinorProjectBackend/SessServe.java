@@ -37,9 +37,7 @@ public class SessServe extends HttpServlet {
         String vEMAIL, vPASSWORD, vname;
         String vto, vfrom, vcc, vbcc, vsubject, vbody, sname,EMAIL,otp;
         int x;
-        HttpSession sess;
-
-
+        
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -52,8 +50,7 @@ public class SessServe extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
 
-            
-            sess = request.getSession(true);
+        
             vEMAIL = request.getParameter("EMAIL");
             vPASSWORD = request.getParameter("PASSWORD");
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
@@ -65,7 +62,13 @@ public class SessServe extends HttpServlet {
             if(ors.next()) 
             {
                 vname = ors.getString("USERNAME");
-                sess.setAttribute("sname",vname);
+                int userid = ors.getInt("ID");
+
+                HttpSession se = request.getSession(true);
+                se.setAttribute("sname",vname);
+                se.setAttribute("userid",userid);
+
+                
                 // PLS NOTE THAT U CAN IGNORE MANY LINES BELOW IF U R NOT DEALING WITH OTP OR MAIL SENDING
                 vto=vEMAIL;
                 vsubject="New OTP for Logging in !!!";
@@ -98,8 +101,8 @@ public class SessServe extends HttpServlet {
                          x = random.nextInt(9999);
                      }
                      vbody += "\nYour new OTP is " + x;
-                     sess.setAttribute("otp",x);
-                     sess.setAttribute("EMAIL",vEMAIL);
+                     se.setAttribute("otp",x);
+                     se.setAttribute("EMAIL",vEMAIL);
                      
                     message.setText(vbody);
                     Transport.send(message);
@@ -110,7 +113,7 @@ public class SessServe extends HttpServlet {
                      out.println("<h2 style='color:red'>"+e.getMessage()+"</h2>");
             }
                 
-            }
+            }   
             else 
             {
                 response.sendRedirect("http://localhost:8080/Bookinggo/UserLogin/WrongPass.html");

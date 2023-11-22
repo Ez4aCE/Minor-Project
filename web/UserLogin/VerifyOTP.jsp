@@ -32,15 +32,14 @@
             int otp;
             %>
         <%
-            HttpSession sess = request.getSession(false);
+            HttpSession se = request.getSession(false);
             
 
-            if(sess!=null) 
+            if(se!=null) 
             {
-                name = sess.getAttribute("sname").toString();
-                votp = sess.getAttribute("otp").toString();
-                vemail = sess.getAttribute("EMAIL").toString();
-                otp =Integer.parseInt(votp);  
+                name = se.getAttribute("sname").toString();
+                votp = se.getAttribute("otp").toString();
+                vemail = se.getAttribute("EMAIL").toString();  
             }
             else {
                  %>
@@ -55,7 +54,7 @@
 
             if(request.getParameter("bVerify")!=null)
             {
-                if(request.getParameter("tbOTP").equals(otp))
+                if(request.getParameter("tbOTP").equals(votp))
                 {
                 %>
                 <script>
@@ -76,7 +75,7 @@
                    %>
                    
                    <h3 style="color: blueviolet">
-                   Welcome <%=vname%> . 
+                   Welcome <%=name%> . 
                    Your designated email is : <%=vemail%>. Check your inbox .
                    Please complete the login process.
                    <a href="http://localhost:8080/TestWeb/SessLogout">Sign out</a>
@@ -86,7 +85,7 @@
             %> 
   <div class="main">
   <p class="sign" align="center">Forgot Password</p>
-        <form name="frmOTP" method="POST" action="http://localhost:8080/TestWeb/PageServes/VerifyOTP.jsp">
+        <form name="frmOTP" method="POST" action="http://localhost:8080/Bookinggo/UserLogin/VerifyOTP.jsp">
     
             <span> Enter OTP</span>
             <input class="un " type="number" align="center" placeholder="OTP" name="tbOTP">

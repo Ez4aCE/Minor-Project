@@ -1,0 +1,36 @@
+*{
+    /* margin: 0;
+    padding: 0; */
+    /* background-color: #D9AFD9; */
+    /* background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%); */
+
+    /* background-image: linear-gradient( 90.2deg,  rgba(79,255,255,1) 0.3%, rgba(0,213,255,1) 99.8% ); */
+
+    /* background-image: radial-gradient( circle 975px at 2.6% 48.3%,  rgba(0,8,120,1) 0%, rgba(95,184,224,1) 99.7% ); */
+
+    /* background-image: linear-gradient( 90.1deg,  rgba(84,212,228,1) 0.2%, rgba(68,36,164,1) 99.9% ); */
+
+    /* background-image: linear-gradient(#2C3E50,#FD746C); */
+    /* box-sizing: border-box; */
+    
+    
+    
+    
+}
+#conbook{
+    display: flex;
+    flex-wrap: wrap;
+}
+#booked{
+    /* width: 80vw; */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+
+    height: 150vh;
+    background-color: #2b3035;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,0.1) 42%, rgba(92,202,238,0.20) 93.6% );
+    box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75); 
+}
