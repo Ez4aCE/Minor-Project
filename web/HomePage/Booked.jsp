@@ -17,7 +17,6 @@
         </style>
     </head>
     <body>
-        <h1>TICKET BOOKED.... SAFE TRAVELS AND HAPPY JOURNEY</h1>
         <script>
         alert("TICKET BOOKED....YOU CAN DOWNLOAD IT FROM YOUR PROFILE/MYBOOKING");    
         location.href="http://localhost:8080/Bookinggo/HomePage/Home.jsp";

@@ -104,8 +104,8 @@ Created on : Nov 8, 2023, 11:37:03 PM
                     </a>
                     <ul class="dropdown-menu text-small" >
                          
-                      <li><a class="dropdown-item" href="/Bookinggo/profilepage/profile.html">my bookings</a></li>
-                      <li><a class="dropdown-item" href="/Bookinggo/profilepage/profile.html">Profile</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/profilepage/Profile.jsp">my bookings</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/profilepage/Profile.jsp">Profile</a></li>
                       <li>
                         <hr class="dropdown-divider">
                       </li>

@@ -141,7 +141,7 @@ img {
     height: 50vh;
 }
 
-.container {
+.con {
     width: 90%;
     max-width: 4070px;
     height: 550px;
@@ -199,8 +199,10 @@ img {
     border-radius: 20px;
     margin-top: 20px;
     margin-right: 50px;
-    width: 50%;
-    height: 550px;
+    width: 60%;
+    height: 500px;
+    display: flex;
+    overflow: hidden;
 
     
 
@@ -216,6 +218,26 @@ img {
     /* border: 2px solid rgb(0, 0, 0); */
 
 }
+
+#history{
+    margin-left: 25px;
+    width: 90%;
+
+}
+
+table, tr, td
+                {
+                    /* padding: 10px; */
+                    border: 1px solid rgb(0, 0, 0);
+                    border-collapse: collapse
+                }
+                th
+                {
+                    /* padding: 10px; */
+                    border: 1px solid rgb(0, 0, 0);
+                    border-collapse: collapse;
+                    /* color: rgb(0, 0, 0) */
+                }
 
 
 
