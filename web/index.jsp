@@ -19,15 +19,6 @@
 
     <body>            
       
-<%! String vname; %>
-        <% HttpSession se=request.getSession(false);
-          vname = se.getAttribute("sname").toString();
-
-        %>        
-        
-        
-        
-        
 
             <!-- navbar -->
 
@@ -52,38 +43,44 @@
                     <li><a href="http://localhost:8080/Bookinggo/AboutUs/Aboutus.jsp" class="nav-link px-2 link">about us</a></li>
                   </ul>
 
+
                   <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
                   </form>
 
-                  <div class="dropdown text-end" id="logout">
+                  <div class="dropdown text-end" id="log">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                       data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
                         class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small" >
-                        <li><a class="dropdown-item"><%= vname%> </a></li>   
+<%! String vname; %>
+<% HttpSession se=request.getSession(false);
+  try {
+    if (se != null) {
+        vname = se.getAttribute("sname").toString();
+%>                     
+                      <li><a class="dropdown-item" href=""><%=vname%></li>                      
                       <li><a class="dropdown-item" href="/Bookinggo/profilepage/Profile.jsp">my bookings</a></li>
                       <li><a class="dropdown-item" href="/Bookinggo/profilepage/Profile.jsp">Profile</a></li>
                       <li>
                         <hr class="dropdown-divider">
                       </li>
                       <li><a class="dropdown-item" href="http://localhost:8080/Bookinggo/SessLogOut">log out</a></li>
+ <%
+    }
+}  catch(Exception ex) { %> 
+                      
+                      <li><a class="dropdown-item" href="/Bookinggo/UserRegistration/Register.html">create new account</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/UserLogin/UserLogin.html">log in</a></li>
+<%
+    }
+%>                      
                     </ul>
                   </div>
 
-                  <div class="dropdown text-end" id="login">
-                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                      data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
-                        class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu text-small" >
-                      <li><a class="dropdown-item" href="/Bookinggo/UserRegistration/Register.html">create new account</a></li>
-                      <li><a class="dropdown-item" href="/Bookinggo/UserLogin/UserLogin.html">log in</a></li>
-                    </ul>
-                  </div>
+                  
                 </div>
               </div>
             </header>
@@ -91,29 +88,8 @@
             
             
             
-        <%
-        try {
-            if(se!=null){
-            %>
-                <script>
-                    
-//                var name =  <%=vname%>;
-                document.getElementById('login').style.display = "none";
-                       
-                </script>
-                
-            <%   
-            }
-          } catch(Exception ex) { %>
-          <script>
-            document.getElementById('logout').style.display = "none";
-
-            // location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
-          </script>
-          <% } %>
-
-
-
+            
+            
             <!-- heading -->
 
             <div class="container-fluid">
@@ -179,10 +155,7 @@
                         <input type="radio" class="r form-check-input" name="rado" id="car"><img
                           src="/Bookinggo/image/car.png" alt="" style="height: 40px;">Car
 
-                      <input type="radio" class="r form-check-input" name="rado" id="plane" disabled> <img
-                        src="/Bookinggo/image/plane.png" alt="" style="height: 25px;">Plane
-                      <input type="radio" class="r form-check-input" name="rado" id="bus" disabled><img
-                        src="/Bookinggo/image/bus.png" alt="" style="height: 40px;">Bus
+                      
                     </div>
 
                     <div class="search">
@@ -299,9 +272,7 @@
                       </h2>
                       <div id="flush-collapseOne" class="accordion-collapse collapse"
                         data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                          demonstrate the
-                          <code>.accordion-flush</code> class. This is the first item's accordion body.
+                        <div class="accordion-body">no you cant book anything without sign-in.
                         </div>
                       </div>
                     </div>
@@ -314,11 +285,7 @@
                       </h2>
                       <div id="flush-collapseTwo" class="accordion-collapse collapse"
                         data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                          demonstrate the
-                          <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine
-                          this being
-                          filled with some actual content.
+                        <div class="accordion-body">we accept credit, debit cards and upi.
                         </div>
                       </div>
                     </div>
@@ -332,13 +299,7 @@
                       </h2>
                       <div id="flush-collapseThree" class="accordion-collapse collapse"
                         data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                          demonstrate the
-                          <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more
-                          exciting
-                          happening here in terms of content, but just filling up the space to make it look, at least at
-                          first
-                          glance, a bit more representative of how this would look in a real-world application.
+                        <div class="accordion-body">sorry we have a no refund policy.
                         </div>
                       </div>
                     </div>
@@ -361,7 +322,7 @@
                   <p>
                      <a href="/Bookinggo/ComplaintsPage/Complaints.jsp" class="link-light text-decoration-none">help</a><br>
                      <a href="http://localhost:8080/Bookinggo/AboutUs/Aboutus.jsp" class="link-light text-decoration-none">about us</a><br>
-                    <a href="#" class="link-light text-decoration-none">feeddback</a><br>
+                    <a href="http://localhost:8080/Bookinggo/Feedback/feedback.jsp" class="link-light text-decoration-none">feeddback</a><br>
                   </p>
                 </div>
                 <div class="col-lg-3 pt-4">

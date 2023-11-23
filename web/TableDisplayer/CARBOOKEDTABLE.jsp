@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Record Displayer</title>
+        <title>CAR Record Displayer</title>
         <!--STEP 2: ADDING A INTERNAL STYLE FOR TABLE-->
          <style>
                 table, tr, td

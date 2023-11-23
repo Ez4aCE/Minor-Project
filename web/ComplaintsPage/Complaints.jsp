@@ -57,7 +57,9 @@
 </head>
 <body>
 
-<header class="p-3  border-bottom " id="nav">
+<!-- navbar -->
+
+            <header class="p-3  border-bottom " id="nav">
               <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                   <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
@@ -78,69 +80,48 @@
                     <li><a href="http://localhost:8080/Bookinggo/AboutUs/Aboutus.jsp" class="nav-link px-2 link">about us</a></li>
                   </ul>
 
+
                   <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
                   </form>
-                    
-                <div class="dropdown text-end" id="logout">
+
+                  <div class="dropdown text-end" id="log">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                       data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
                         class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small" >
-                                              <li><a class="dropdown-item"><%= vname%> </a></li>      
+<%! String vname; %>
+<% HttpSession se=request.getSession(false);
+  try {
+    if (se != null) {
+        vname = se.getAttribute("sname").toString();
+%>                     
+                      <li><a class="dropdown-item" href=""><%=vname%></li>                      
                       <li><a class="dropdown-item" href="/Bookinggo/profilepage/Profile.jsp">my bookings</a></li>
                       <li><a class="dropdown-item" href="/Bookinggo/profilepage/Profile.jsp">Profile</a></li>
                       <li>
                         <hr class="dropdown-divider">
                       </li>
                       <li><a class="dropdown-item" href="http://localhost:8080/Bookinggo/SessLogOut">log out</a></li>
+ <%
+    }
+}  catch(Exception ex) { %> 
+                      
+                      <li><a class="dropdown-item" href="/Bookinggo/UserRegistration/Register.html">create new account</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/UserLogin/UserLogin.html">log in</a></li>
+<%
+    }
+%>                      
                     </ul>
                   </div>
 
-                  <div class="dropdown text-end" id="login">
-                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                      data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
-                        class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu text-small" >
-                      <li><a class="dropdown-item" href="/Bookinggo/UserRegistration/Register.html">create new account</a></li>
-                      <li><a class="dropdown-item" href="/Bookinggo/UserLogin/UserLogin.html">log in</a></li>
-                    </ul>
-                  </div>
+                  
                 </div>
               </div>
             </header>
             
-            
-            
-            <%! String vname; %>
-        <% HttpSession se=request.getSession(false);
-        try {
-            if(se!=null){
-            vname = se.getAttribute("sname").toString();
-            %>
-                <script>
-                    
-//                var name =  <%=vname%>;
-                document.getElementById('login').style.display = "none";
-                       
-                </script>
-                
-            <%   
-            }
-          } catch(Exception ex) { %>
-          <script>
-//            alert("you are not logged in!!!");
-            document.getElementById('logout').style.display = "none";
-
-            // alert("Redirecting for logging==>>");
-            // location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
-          </script>
-          <% } %>    
-    
             
 
 

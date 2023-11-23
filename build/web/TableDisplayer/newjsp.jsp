@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Record Displayer</title>
+        <title>TRAIN Record Displayer</title>
         <!--STEP 2: ADDING A INTERNAL STYLE FOR TABLE-->
          <style>
                 table, tr, td
@@ -64,7 +64,6 @@
                         <%
                             }
                         %>
-                     <th>ACTION</th>
                 </tr>
             </thead>
             <tbody>
@@ -82,18 +81,12 @@
                         <%
                             }
                         %>
-                    <td>
-                        <button>Edit</button><button>Delete</button>
-                        </td>
                 </tr>
                 <%
                     }
                     %>
             </tbody>
             <tfoot>
-                <tr>
-                    <th colspan="10">&copy; TECHNO INDIA &reg; TECHNOLOGIES &trade;</th>
-                </tr>
             </tfoot>
         </table>
                     <%

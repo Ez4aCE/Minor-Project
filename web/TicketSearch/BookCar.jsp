@@ -93,7 +93,9 @@
     
  
  
-      <header class="p-3  border-bottom " id="nav">
+      <!-- navbar -->
+
+            <header class="p-3  border-bottom " id="nav">
               <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                   <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
@@ -108,74 +110,56 @@
                         <img src="/Bookinggo/image/logo.png"
                           style="height: 50px; width: 100px;">
                       </a></li>
-                    <li><a href="/Bookinggo/HomePage/Home.jsp" class="nav-link px-2 link">home</a></li>
-                    <li><a href="#" class="nav-link px-2 link">book</a></li>
-                    <li><a href="#" class="nav-link px-2 link">help</a></li>
-                    <li><a href="#" class="nav-link px-2 link">about us</a></li>
+                    <li><a href="/Bookinggo/" class="nav-link px-2 link">home</a></li>
+                    <li><a href="/Bookinggo/" class="nav-link px-2 link">book</a></li>
+                    <li><a href="/Bookinggo/ComplaintsPage/Complaints.jsp" class="nav-link px-2 link">help</a></li>
+                    <li><a href="http://localhost:8080/Bookinggo/AboutUs/Aboutus.jsp" class="nav-link px-2 link">about us</a></li>
                   </ul>
+
 
                   <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
                   </form>
 
-                  <div class="dropdown text-end" id="logout">
+                  <div class="dropdown text-end" id="log">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                       data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
                         class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small" >
-                         
+<%! String vname,email,userid; %>
+<% HttpSession se=request.getSession(false);
+  try {
+    if (se != null) {
+        vname = se.getAttribute("sname").toString();
+        email = se.getAttribute("EMAIL").toString();
+        userid = se.getAttribute("userid").toString();
+%>                     
+                      <li><a class="dropdown-item" href=""><%=vname%></li>                      
                       <li><a class="dropdown-item" href="/Bookinggo/profilepage/Profile.jsp">my bookings</a></li>
                       <li><a class="dropdown-item" href="/Bookinggo/profilepage/Profile.jsp">Profile</a></li>
                       <li>
                         <hr class="dropdown-divider">
                       </li>
                       <li><a class="dropdown-item" href="http://localhost:8080/Bookinggo/SessLogOut">log out</a></li>
+ <%
+    }
+}  catch(Exception ex) { %> 
+                      
+                      <li><a class="dropdown-item" href="/Bookinggo/UserRegistration/Register.html">create new account</a></li>
+                      <li><a class="dropdown-item" href="/Bookinggo/UserLogin/UserLogin.html">log in</a></li>
+<%
+    }
+%>                      
                     </ul>
                   </div>
 
-                  <div class="dropdown text-end" id="login">
-                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                      data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
-                        class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu text-small" >
-                      <li><a class="dropdown-item" href="/Bookinggo/UserRegistration/Register.html">create new account</a></li>
-                      <li><a class="dropdown-item" href="/Bookinggo/UserLogin/UserLogin.html">log in</a></li>
-                    </ul>
-                  </div>
+                  
                 </div>
               </div>
             </header>
-                 
-            <%! String vname,email,userid; %>
-        <% HttpSession se=request.getSession(false);
-        try {
-            if(se!=null){
-            vname = se.getAttribute("sname").toString();
-            email = se.getAttribute("EMAIL").toString();
-            userid = se.getAttribute("userid").toString();
             
-            %>
-                <script>
-                    
-//                var name =  <%=vname%>;
-                document.getElementById('login').style.display = "none";
-                       
-                </script>
-                
-            <%   
-            }
-          } catch(Exception ex) { %>
-          <script>
-            alert("you are not logged in!!! Redirecting to login page ");
-            document.getElementById('logout').style.display = "none";
-
-             location.href="http://localhost:8080/Bookinggo/UserLogin/UserLogin.html";
-          </script>
-          <% } %>
 
           
 <div class="container mt-4" id="conbook">          
