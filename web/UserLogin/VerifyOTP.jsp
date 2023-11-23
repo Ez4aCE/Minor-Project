@@ -89,7 +89,7 @@
             }   
             %> 
   <div class="main">
-  <p class="sign" align="center">Forgot Password</p>
+  <p class="sign" align="center">verification</p>
         <form name="frmOTP" method="POST" action="http://localhost:8080/Bookinggo/UserLogin/VerifyOTP.jsp">
     
             <span> Enter OTP</span>
