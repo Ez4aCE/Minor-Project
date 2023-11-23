@@ -84,7 +84,6 @@
                    Welcome <%=name%> . 
                    Your designated email is : <%=vemail%>. Check your inbox .
                    Please complete the login process.
-                   <a href="http://localhost:8080/TestWeb/SessLogout">Sign out</a>
                    <h3>
                     <%
             }   

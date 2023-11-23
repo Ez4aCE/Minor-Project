@@ -123,25 +123,23 @@
 
 
 <div class="result">
-    <div id="profile" class="tabcontent">
+    <div id="profile" class="tabcontent" style="margin-left: 210px">
         <h3>profile</h3>
         
+        <span> name : <%= name%></span> <br><br>
+        <span> your email : <%= email%></span>
+
         
         
-        
-        
-        
-        
-        
-        
+      
     </div>
 
+        
     <div id="history" hidden class="tabcontent">
         
         <h3>MY BOOKING</h3>
        
         
-
         <table class="table table-hover table-bordered border-dark" id="result">
             <thead>
                 <tr class="table-dark">
@@ -191,7 +189,8 @@
         
     </div>
 
-    <div id="security" hidden class="tabcontent">
+            
+    <div id="security" hidden class="tabcontent" style="margin-left: 150px">
         <h3>To change password</h3>
         
         
@@ -205,16 +204,15 @@
             <button type="submit">click here</button>
         </form>
         
-        
-        
+          
         
     </div>
 
-    <div id="logout" hidden class="tabcontent">
+             
+    <div id="logout" hidden class="tabcontent" style="margin-left: 100px">
         <h3>CLICK BELOW TO LOGOUT </h3>
         
        
-        
         <form action="http://localhost:8080/Bookinggo/SessLogOut" method="post">
             <button type="submit">click here</button>
         </form>

@@ -21,12 +21,7 @@
               }
          </script>   
          
-         <style>
-             body{
-                     background-image: linear-gradient(#2C3E50,#FD746C);
-
-             }
-         </style>
+         <<link rel="stylesheet" href="ValidE.css"/>
     </head>
     <body style="background-color: antiquewhite">
          <%!
@@ -86,52 +81,24 @@
                     <%
             }   
             %> 
-        <h2>THIS IS SECURITY QUESTION AND ANSWER VERIFICATION PAGE!</h2>
+                        <h2>THIS IS SECURITY QUESTION AND ANSWER VERIFICATION PAGE!</h2>
+
+            <div class="main">
         <form name="frmSecurity" method="POST" action="http://localhost:8080/Bookinggo/forgotpassword/VerifyQues.jsp?EMAIL=<%=vEMAIL%>">
 
             <span class="new">QUESTION</span>
-            <input class="un " type="text" align="center" placeholder="enter here" name="tbQUES">
+            <input class="un " type="text" align="center" placeholder="enter here" name="tbQUES" value="<%=vQUES%>">
             <span>ANSWER</span>
-            <input class="un " type="password" align="center" placeholder="Confirm" name="cpass">
+            <input class="un " type="password" align="center" placeholder="Confirm" name="tbANS">
                   <div class="buttons">
                   <input type="submit" class="submit" align="center" value="Save" name="bVerify">
                   <input type="reset" class="submit"  align="center" value="Clear">
                   <button type="button" class="submit"  name="bClose" onclick="funClose();">Close</button>
                   </div>
-
-
         </form>
+            </div>       
     </body>
     </html>
     
     
-    <!-- <div>
-        <table border="1">
-            <thead>
-                <tr><th colspan="2">SECURITY VERIFICATION FORM</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>QUESTION</td>
-                    <td><input type="text" size="30" name="tbQUES" value="<%=vQUES%>" readonly /></td>
-                </tr>
-                <tr>
-                    <td>ANSWER</td>
-                    <td><input type="text" size="30" name="tbANS" required/></td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        <button type="submit" name="bVerify">Verify</button>
-                    </td>
-                    <td>
-                        <button type="reset" name="bReset">Reset</button>
-                        <button type="button" name="bClose" onclick="funClose();">Close</button>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr><th colspan="2">&copy;Techno India Technologies ; Limited &reg;</th></tr>
-            </tfoot>
-        </table>
-    </div> -->
+    

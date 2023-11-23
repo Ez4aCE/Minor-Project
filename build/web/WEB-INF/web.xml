@@ -33,13 +33,17 @@
         <servlet-class>MinorProjectBackend.TrainDetails</servlet-class>
     </servlet>
     <servlet>
-    <servlet-name>SessLogOut</servlet-name>
-    <servlet-class>MinorProjectBackend.SessLogOut</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>SessLogOut</servlet-name>
-    <url-pattern>/SessLogOut</url-pattern>
-</servlet-mapping>
+        <servlet-name>SessLogOut</servlet-name>
+        <servlet-class>MinorProjectBackend.SessLogOut</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminLogOut</servlet-name>
+        <servlet-class>MinorProjectBackend.AdminLogOut</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessLogOut</servlet-name>
+        <url-pattern>/SessLogOut</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>TrainDetails</servlet-name>
         <url-pattern>/TrainDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLogOut</servlet-name>
+        <url-pattern>/AdminLogOut</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

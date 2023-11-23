@@ -5,7 +5,6 @@
  */
 package MinorProjectBackend;
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,9 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class SessLogOut extends HttpServlet {
+/**
+ *
+ * @author ryben(aditya)
+ */
+public class AdminLogOut extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -26,8 +29,8 @@ public class SessLogOut extends HttpServlet {
             out.println("<title>Servlet SessLogout</title>");            
             out.println("</head>");
             out.println("<body>");
-            HttpSession se = request.getSession(false);
-            se.invalidate();
+            HttpSession admin = request.getSession(false);
+            admin.invalidate();
             response.sendRedirect("http://localhost:8080/Bookinggo/");
             out.println("</body>");
             out.println("</html>");
