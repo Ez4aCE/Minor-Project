@@ -199,6 +199,7 @@ body {
 }
 .submit {
   cursor: pointer;
+    
     border-radius: 5em;
     color: #fff;
     background: linear-gradient(to right, #50ade4, #46a5db);

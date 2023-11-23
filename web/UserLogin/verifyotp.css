@@ -1,6 +1,7 @@
 body {
-	background-color: #F3EBF6;
 	font-family: 'Ubuntu', sans-serif;
+            background-image: linear-gradient(#2C3E50,#FD746C);
+
 }
 
 .main {

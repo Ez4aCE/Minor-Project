@@ -19,7 +19,14 @@
                 if(window.parent) if(confirm("Closing window......") === true)  window.parent.window.close();    
                 else if(confirm("Closing window......") === true) window.close();   
               }
-         </script>     
+         </script>   
+         
+         <style>
+             body{
+                     background-image: linear-gradient(#2C3E50,#FD746C);
+
+             }
+         </style>
     </head>
     <body style="background-color: antiquewhite">
          <%!

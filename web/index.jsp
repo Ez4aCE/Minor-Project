@@ -14,7 +14,7 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
       <!-- css  -->
-      <link rel="stylesheet" href="hp.css">
+      <link rel="stylesheet" href="http://localhost:8080/Bookinggo/HomePage/hp.css">
     </head>
 
     <body>            
@@ -42,10 +42,10 @@
                         <img src="/Bookinggo/image/logo.png"
                           style="height: 50px; width: 100px;">
                       </a></li>
-                    <li><a href="/Bookinggo/HomePage/Home.jsp" class="nav-link px-2 link">home</a></li>
-                    <li><a href="#" class="nav-link px-2 link">book</a></li>
-                    <li><a href="#" class="nav-link px-2 link">help</a></li>
-                    <li><a href="#" class="nav-link px-2 link">about us</a></li>
+                    <li><a href="/Bookinggo/" class="nav-link px-2 link">home</a></li>
+                    <li><a href="/Bookinggo/" class="nav-link px-2 link">book</a></li>
+                    <li><a href="/Bookinggo/ComplaintsPage/Complaints.jsp" class="nav-link px-2 link">help</a></li>
+                    <li><a href="http://localhost:8080/Bookinggo/AboutUs/Aboutus.jsp" class="nav-link px-2 link">about us</a></li>
                   </ul>
 
                   <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -59,7 +59,7 @@
                         class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small" >
-                         
+                        <li><a class="dropdown-item"><%= vname%> </a></li>   
                       <li><a class="dropdown-item" href="/Bookinggo/profilepage/Profile.jsp">my bookings</a></li>
                       <li><a class="dropdown-item" href="/Bookinggo/profilepage/Profile.jsp">Profile</a></li>
                       <li>
@@ -103,10 +103,8 @@
             }
           } catch(Exception ex) { %>
           <script>
-//            alert("you are not logged in!!!");
             document.getElementById('logout').style.display = "none";
 
-            // alert("Redirecting for logging==>>");
             // location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
           </script>
           <% } %>

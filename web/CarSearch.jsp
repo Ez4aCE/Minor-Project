@@ -1,8 +1,9 @@
 <%-- 
-Document   : fill
-Created on : Nov 8, 2023, 11:37:03 PM
+    Document   : CarSearch
+    Created on : Nov 9, 2023, 3:01:54 AM
     Author     : ryben(aditya)
 --%>
+
 <%@page import="java.sql.DriverManager"%>
 <%@page import="oracle.jdbc.OraclePreparedStatement"%>
 <%@page import="oracle.jdbc.OracleResultSetMetaData"%>
@@ -15,7 +16,7 @@ Created on : Nov 8, 2023, 11:37:03 PM
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>TRAIN DETAILS</title>
+        <title>Record Displayer</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -24,7 +25,7 @@ Created on : Nov 8, 2023, 11:37:03 PM
 
       <!-- css  -->
     <link rel="stylesheet" href="http://localhost:8080/Bookinggo/HomePage/hp.css">
-    <link rel="stylesheet" href="filter.css">
+    <link rel="stylesheet" href="http://localhost:8080/Bookinggo/HomePage/filter.css">
     </head>
     <%!
         // STEP 3: DECLARING OBJECTS AND VARIABLES
@@ -33,23 +34,23 @@ Created on : Nov 8, 2023, 11:37:03 PM
             OracleResultSet ors;
             OracleResultSetMetaData orsmd;
             int counter, reccounter, colcounter;
-            String date, departureStation, arrivalStation, trainName,nop ;
-            int  trainId,trainPrice;
+            String date, departureStation, arrivalStation,noSeat,nop;
+            
         %>
         <%
             
             departureStation = request.getParameter("departure");
             date = request.getParameter("date");
+            arrivalStation = request.getParameter("arrival");
             nop = request.getParameter("nop");
+
             
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 Date dt = sdf.parse(date);
                 SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
                 date = sdf1.format(dt);
-//         
-            arrivalStation = request.getParameter("arrival"); 
-            
-            
+//         vemail = sess.getAttribute("sessemail").toString();
+             
             // STEP 4: REGISTRATION OF ORACLE DRIVER
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
             
@@ -57,10 +58,11 @@ Created on : Nov 8, 2023, 11:37:03 PM
             oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
             
             // STEP 6: INSTANTIATING THE STATEMENT OBJECT
-            ops = (OraclePreparedStatement)oconn.prepareCall("SELECT * FROM AVAILABLETRAINS WHERE DEPSTATION=? AND ARRSTATION=? AND TRAVELDATE=?");
+            ops = (OraclePreparedStatement)oconn.prepareCall("SELECT * FROM AVAILABLECAR WHERE YOURLOC=? AND DESTINATION=? AND TRAVELDATE=?");
               ops.setString(1, departureStation);
               ops.setString(2, arrivalStation);
               ops.setString(3, date);
+//              ops.setString(4, noSeat);
             // STEP 7: FILLING UP THE DATABASE RECORDS IN A TEMPORARY CONTAINER
             ors = (OracleResultSet)ops.executeQuery();
             
@@ -68,8 +70,6 @@ Created on : Nov 8, 2023, 11:37:03 PM
             orsmd = (OracleResultSetMetaData)ors.getMetaData();
             %>
             <body>
-
-                
 
 <header class="p-3  border-bottom " id="nav">
               <div class="container">
@@ -86,7 +86,7 @@ Created on : Nov 8, 2023, 11:37:03 PM
                         <img src="/Bookinggo/image/logo.png"
                           style="height: 50px; width: 100px;">
                       </a></li>
-                    <li><a href="/Bookinggo/HomePage/Home.jsp" class="nav-link px-2 link">home</a></li>
+                    <li><a href="/Bookinggo/index.jsp" class="nav-link px-2 link">home</a></li>
                     <li><a href="#" class="nav-link px-2 link">book</a></li>
                     <li><a href="#" class="nav-link px-2 link">help</a></li>
                     <li><a href="#" class="nav-link px-2 link">about us</a></li>
@@ -154,9 +154,7 @@ Created on : Nov 8, 2023, 11:37:03 PM
             // location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
           </script>
           <% } %>
-                
-                
-                
+
 
 
 <div class="container-fluid">
@@ -198,15 +196,14 @@ Created on : Nov 8, 2023, 11:37:03 PM
                         <%
                             }
                         %>
-                   <td>
-    <form method="post" action="BookTrain.jsp"> <!-- Create a new JSP for booking -->
-        <input type="hidden" name="trainId" value="<%=ors.getString("TRAINID")%>">
+                    <td>
+                        <form method="post" action="http://localhost:8080/Bookinggo/TicketSearch/BookCar.jsp"> <!-- Create a new JSP for booking -->
+        <input type="hidden" name="carId" value="<%=ors.getString("CARID")%>">
         <input type="hidden" name="nop" value="<%=nop%>">
 
         <button type="submit" class="btn btn-danger">Book</button>
     </form>
-</td>
-
+                        </td>
                 </tr>
                 <%
                     }
@@ -228,16 +225,12 @@ Created on : Nov 8, 2023, 11:37:03 PM
            </div>             
            
            
-                
-                
-                
-                
            
  <!-- footer  -->
  <div class="row justify-content-evenly bg-dark text-white pt-3 pb-5">
     <div class="col-lg-3 pt-4">
       <h5 class="pb-2">Booking go</h5>
-      <p> booking go is the world's top rated online ticket booking service trusted by over 1 million happy
+      <p> booking go is the world's largest online ticket booking service trusted by over 1 million happy
         customers globally. we offer ticket booking through our website, iOS and Android mobile apps for all
         major routes. </p>
     </div>
@@ -275,3 +268,4 @@ Created on : Nov 8, 2023, 11:37:03 PM
   crossorigin="anonymous"></script>                           
 </body>
 </html>
+

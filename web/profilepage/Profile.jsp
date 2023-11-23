@@ -36,7 +36,20 @@
             int id,trainId,trainPrice;
         %>
         
-        
+      <%! String name,email; %>
+        <% HttpSession se=request.getSession(false);
+        try {
+            if(se!=null){
+            name = se.getAttribute("sname").toString();
+            email = se.getAttribute("EMAIL").toString();   
+            }
+          } catch(Exception ex) { %>
+          <script>
+            alert("you are not logged in!!!");
+
+             location.href="http://localhost:8080/Bookinggo/Userlogin/UserLogin.html";
+          </script>
+          <% } %>  
         
         
         
@@ -73,8 +86,8 @@
     <nav>
         <div class="topnav">
             <img src="/image/booking-go-logo-PhotoRoom.png-PhotoRoom.png" alt="" style="height: 40px; margin-top: 5px;">
-            <a href="/Bookinggo/HomePage/Home.jsp">home</a>
-            <a href="/Bookinggo/HomePage/Home.jsp"> book</a>
+            <a href="/Bookinggo/">home</a>
+            <a href="/Bookinggo/"> book</a>
             <a href="#">Help </a>
             <a href="#"> contact us</a>
 
@@ -179,16 +192,18 @@
     </div>
 
     <div id="security" hidden class="tabcontent">
-        <h3>options</h3>
+        <h3>To change password</h3>
         
         
-        <form action="changepass.jsp">
-            <span>to change password</span>
+        <form action="/Bookinggo/profilepage/changepassword.jsp" action="POST">
+            
+            <h4> fill the form</h4> <br><br>
+             <span>enter email</span> <br>
+             <input type="text" value="<%=email%>" name="email" > <br><br>
+             <span>enter password</span> <br>
+             <input type="password" value="" placeholder="enter new password" name="password"> <br><br><br>
             <button type="submit">click here</button>
         </form>
-        
-        
-        
         
         
         

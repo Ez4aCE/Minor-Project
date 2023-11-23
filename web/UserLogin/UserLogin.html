@@ -22,8 +22,7 @@
 
   <script>
     function funClose() {
-      if (window.parent) if (confirm("Closing window......") === true) window.parent.window.close();
-      else if (confirm("Closing window......") === true) window.close();
+        location.href="/Bookinggo/";
     }
 
     function funLogin() {
@@ -41,7 +40,7 @@
 
     function funRegis()
     {
-                 location.href="/Bookinggo/UserRegistration/Register.html.html"         }
+                 location.href="/Bookinggo/UserRegistration/Register.html"         }
   </script>
 
 
@@ -57,10 +56,10 @@
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 
         <li><a href="#">
-            <img src="/Bokkinggo/image/logo.png"
+            <img src="/Bookinggo/image/logo.png"
               style="height: 50px; width: 100px;">
           </a></li>
-        <li><a href="/Bookinggo/HomePage/Home.jsp" class="nav-link px-2 link">home</a></li>
+        <li><a href="/Bookinggo/" class="nav-link px-2 link">home</a></li>
         <li><a href="#" class="nav-link px-2 link">book</a></li>
         <li><a href="#" class="nav-link px-2 link">help</a></li>
         <li><a href="#" class="nav-link px-2 link">about us</a></li>
@@ -73,7 +72,7 @@
       <div class="dropdown text-end" id="logout">
         <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
           data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="/Bokkinggo/image/profile.png" alt="mdo" width="32" height="32"
+          <img src="/Bookinggo/image/profile.png" alt="mdo" width="32" height="32"
             class="rounded-circle">
         </a>
         <ul class="dropdown-menu text-small" >
@@ -114,7 +113,7 @@
             <div class="buttons">
               <input type="submit" class="submit" align="center" value="Submit">
               <input type="reset" class="submit" align="center" value="Clear">
-              <input type="submit" class="submit" align="center" onclick="funClose()" value=" Close">
+              <input type="reset"   class="submit" align="center" onclick="funClose()" value="Close">
             </div>
             </p>
             <p>

@@ -132,7 +132,7 @@
             int a = opu.executeUpdate();
             
             if(a>0){
-                 response.sendRedirect("Booked.jsp");
+                 response.sendRedirect("http://localhost:8080/Bookinggo/HomePage/Booked.jsp");
             } else {
                 out.println("<h2 style='color:brown'>error tey again later...");
             }

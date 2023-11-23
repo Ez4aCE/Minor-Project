@@ -24,8 +24,8 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
       <!-- css  -->
-      <link rel="stylesheet" href="hp.css">
-      <link rel="stylesheet" href="booktra.css">
+      <link rel="stylesheet" href="http://localhost:8080/Bookinggo/HomePage/hp.css">
+      <link rel="stylesheet" href="http://localhost:8080/Bookinggo/HomePage/booktra.css">
 </head>
 <body>
 
@@ -108,7 +108,7 @@
                         <img src="/Bookinggo/image/logo.png"
                           style="height: 50px; width: 100px;">
                       </a></li>
-                    <li><a href="/Bookinggo/HomePage/Home.jsp" class="nav-link px-2 link">home</a></li>
+                    <li><a href="/Bookinggo/" class="nav-link px-2 link">home</a></li>
                     <li><a href="#" class="nav-link px-2 link">book</a></li>
                     <li><a href="#" class="nav-link px-2 link">help</a></li>
                     <li><a href="#" class="nav-link px-2 link">about us</a></li>
@@ -262,7 +262,7 @@
      
       <div class="col-md-7 col-lg-8 mb-4">
         <h2 class="mb-3 text-light">BOOKING DETAILS</h2>
-        <form class="needs-validation" novalidate="" method="post" action="ProcessPayment.jsp">
+        <form class="needs-validation" novalidate="" method="post" action="http://localhost:8080/Bookinggo/TicketSearch/ProcessPayment.jsp">
             
             <input type="hidden" name="trainId" value="<%=trainId%>">
              <input type="hidden" name="nop" value="<%=nop%>">

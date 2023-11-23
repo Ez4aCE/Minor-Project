@@ -18,6 +18,12 @@
         <title>JSP Page</title>
         <link rel="stylesheet" href="verifyotp.css">
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <style>
+            body{
+                    background-image: linear-gradient(#2C3E50,#FD746C);
+
+            }
+        </style>
         <script>
             function funClose()
             {
@@ -59,7 +65,7 @@
                 %>
                 <script>
                     alert("OTP verified successfully!!!");
-                    location.href="http://localhost:8080/Bookinggo/HomePage/Home.jsp";
+                    location.href="http://localhost:8080/Bookinggo/";
                 </script>
                 <%
                 }
