@@ -212,23 +212,23 @@
 
                 <!-- contact -->
                 <div class="col-lg-5 mt-4" id="con">
-                  <h3 class="pb-4" style="text-align: center;">CONTACT FORM</h3>
-                  <form>
+                  <h3 class="pb-4" style="text-align: center;">FEEDBACK FORM</h3>
+                  <form action="http://localhost:8080/Bookinggo/FeedBackLog" method="POST">
                     <div class="mb-3 mt-4">
                       <label for="exampleInputname1" class="form-label">Enter name</label>
-                      <input type="text" class="form-control" id="exampleInputname1">
+                      <input type="text" class="form-control" id="exampleInputname1" name="name">
 
                     </div>
                     <div class="mb-3 mt-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
                       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
 
-                    <!-- <div class="mb-3">
+                     <div class="mb-3">
                       <label for="exampleFormControlTextarea1" class="form-label">Type message</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                    </div> -->
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="content"></textarea>
+                    </div> 
 
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -322,7 +322,8 @@
                   <p>
                      <a href="/Bookinggo/ComplaintsPage/Complaints.jsp" class="link-light text-decoration-none">help</a><br>
                      <a href="http://localhost:8080/Bookinggo/AboutUs/Aboutus.jsp" class="link-light text-decoration-none">about us</a><br>
-                    <a href="http://localhost:8080/Bookinggo/Feedback/feedback.jsp" class="link-light text-decoration-none">feeddback</a><br>
+                    <a href="http://localhost:8080/Bookinggo/Feedback/feedback.jsp" class="link-light text-decoration-none">feedback</a><br>
+                    
                   </p>
                 </div>
                 <div class="col-lg-3 pt-4">

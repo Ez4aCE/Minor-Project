@@ -35,9 +35,9 @@
 
 <%
     departureStation = request.getParameter("departure");
+    date = request.getParameter("date");
     nop = request.getParameter("nop");
 
-    date = request.getParameter("date");
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     Date dt = sdf.parse(date);
     SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
@@ -174,25 +174,15 @@
                             <td>
                                 <%
                                     // Validate if the selected date is equal to or greater than the current date
-   
-  
-                                    
-                                    
-                                    
- String travelDateStr = request.getParameter("date");
- SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-    Date n = sdf2.parse(travelDateStr);
-    SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MMM-yyyy");
-     travelDateStr = sdf3.format(n);
-    SimpleDateFormat sdf4 = new SimpleDateFormat("dd-MMM-yyyy");
-     Date nd = sdf4.parse(travelDateStr);
+                                    String travelDateStr = ors.getString("TRAVELDATE");
+                                    SimpleDateFormat sdf2 = new SimpleDateFormat("dd-MMM-yyyy");
+                                    Date travelDate = sdf2.parse(travelDateStr);
 
-                                    
                                     // Get the current date
                                     Date currentDate = new Date();
 
                                     // Compare the selected date with the current date
-                                    if (nd.compareTo(currentDate) >= 0) {
+                                    if (travelDate.compareTo(currentDate) >= 0) {
                                 %>
                                 <form method="post" action="http://localhost:8080/Bookinggo/TicketSearch/BookTrain.jsp">
                                     <!-- Create a new JSP for booking -->
@@ -241,10 +231,10 @@
     <div class="col-lg-3 pt-4">
       <h5 class="pb-2">important link</h5>
       <p>
-        <a href="/Bookinggo/ComplaintsPage/Complaints.jsp" class="link-light text-decoration-none">help</a><br>
-                     <a href="http://localhost:8080/Bookinggo/AboutUs/Aboutus.jsp" class="link-light text-decoration-none">about us</a><br>
-                    <a href="http://localhost:8080/Bookinggo/Feedback/feedback.jsp" class="link-light text-decoration-none">feedback</a><br>
-                    
+        <a href="#" class="link-light text-decoration-none">TERMS & CO.</a><br>
+        <a href="#" class="link-light text-decoration-none">policy</a><br>
+        <a href="#" class="link-light text-decoration-none">safty guide</a><br>
+        <a href="#" class="link-light text-decoration-none">sitemap</a><br>
       </p>
     </div>
     <div class="col-lg-3 pt-4">

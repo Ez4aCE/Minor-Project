@@ -1,9 +1,8 @@
 <%-- 
-    Document   : CarSearch
-    Created on : Nov 9, 2023, 3:01:54 AM
+Document   : fill
+Created on : Nov 8, 2023, 11:37:03 PM
     Author     : ryben(aditya)
 --%>
-
 <%@page import="java.sql.DriverManager"%>
 <%@page import="oracle.jdbc.OraclePreparedStatement"%>
 <%@page import="oracle.jdbc.OracleResultSetMetaData"%>
@@ -16,7 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Record Displayer</title>
+        <title>TRAIN DETAILS</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -34,23 +33,23 @@
             OracleResultSet ors;
             OracleResultSetMetaData orsmd;
             int counter, reccounter, colcounter;
-            String date, departureStation, arrivalStation,noSeat,nop;
-            
+            String date, departureStation, arrivalStation, trainName,nop ;
+            int  trainId,trainPrice;
         %>
         <%
             
             departureStation = request.getParameter("departure");
             date = request.getParameter("date");
-            arrivalStation = request.getParameter("arrival");
             nop = request.getParameter("nop");
-
             
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 Date dt = sdf.parse(date);
                 SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
                 date = sdf1.format(dt);
-//         vemail = sess.getAttribute("sessemail").toString();
-             
+//         
+            arrivalStation = request.getParameter("arrival"); 
+            
+            
             // STEP 4: REGISTRATION OF ORACLE DRIVER
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
             
@@ -58,11 +57,10 @@
             oconn = (OracleConnection)DriverManager.getConnection("jdbc:oracle:thin:@DESKTOP-G27GBF4:1521:orcl","TECHNOK4","DATABASE");
             
             // STEP 6: INSTANTIATING THE STATEMENT OBJECT
-            ops = (OraclePreparedStatement)oconn.prepareCall("SELECT * FROM AVAILABLECAR WHERE YOURLOC=? AND DESTINATION=? AND TRAVELDATE=?");
+            ops = (OraclePreparedStatement)oconn.prepareCall("SELECT * FROM AVAILABLETRAINS WHERE DEPSTATION=? AND ARRSTATION=? AND TRAVELDATE=?");
               ops.setString(1, departureStation);
               ops.setString(2, arrivalStation);
               ops.setString(3, date);
-//              ops.setString(4, noSeat);
             // STEP 7: FILLING UP THE DATABASE RECORDS IN A TEMPORARY CONTAINER
             ors = (OracleResultSet)ops.executeQuery();
             
@@ -70,6 +68,8 @@
             orsmd = (OracleResultSetMetaData)ors.getMetaData();
             %>
             <body>
+
+                
 
 <header class="p-3  border-bottom " id="nav">
               <div class="container">
@@ -86,7 +86,7 @@
                         <img src="/Bookinggo/image/logo.png"
                           style="height: 50px; width: 100px;">
                       </a></li>
-                    <li><a href="/Bookinggo/index.jsp" class="nav-link px-2 link">home</a></li>
+                    <li><a href="/Bookinggo/" class="nav-link px-2 link">home</a></li>
                     <li><a href="#" class="nav-link px-2 link">book</a></li>
                     <li><a href="#" class="nav-link px-2 link">help</a></li>
                     <li><a href="#" class="nav-link px-2 link">about us</a></li>
@@ -154,7 +154,9 @@
             // location.href="http://localhost:8080/TestWeb/Pages/SessLogin.html";
           </script>
           <% } %>
-
+                
+                
+                
 
 
 <div class="container-fluid">
@@ -196,39 +198,15 @@
                         <%
                             }
                         %>
-                    <td>
- <%
-                                    // Validate                                 
-                                    
- String travelDateStr = request.getParameter("date");
- SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-    Date n = sdf2.parse(travelDateStr);
-    SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MMM-yyyy");
-     travelDateStr = sdf3.format(n);
-    SimpleDateFormat sdf4 = new SimpleDateFormat("dd-MMM-yyyy");
-     Date nd = sdf4.parse(travelDateStr);
+                   <td>
+    <form method="post" action="http://localhost:8080/Bookinggo/TicketSearch/BookTrain.jsp"> <!-- Create a new JSP for booking -->
+        <input type="hidden" name="trainId" value="<%=ors.getString("TRAINID")%>">
+        <input type="hidden" name="nop" value="<%=nop%>">
 
-                                    
-                                    // Get the current date
-                                    Date currentDate = new Date();
+        <button type="submit" class="btn btn-danger">Book</button>
+    </form>
+</td>
 
-                                    // Compare the selected date with the current date
-                                    if (nd.compareTo(currentDate) >= 0) {
-                                %>
-                                <form method="post" action="http://localhost:8080/Bookinggo/TicketSearch/BookCar.jsp">
-                                    <!-- Create a new JSP for booking -->
-                                    <input type="hidden" name="trainId" value="<%=ors.getString("CARID")%>">
-                                    <input type="hidden" name="nop" value="<%=nop%>">
-                                    <button type="submit" class="btn btn-danger">Book</button>
-                                </form>
-                                <%
-                                    } else {
-                                %>
-                                <p style="color: red;">Cannot book for past dates</p>
-                                <%
-                                    }
-                                %>
-                        </td>
                 </tr>
                 <%
                     }
@@ -250,22 +228,26 @@
            </div>             
            
            
+                
+                
+                
+                
            
  <!-- footer  -->
  <div class="row justify-content-evenly bg-dark text-white pt-3 pb-5">
     <div class="col-lg-3 pt-4">
       <h5 class="pb-2">Booking go</h5>
-      <p> booking go is the world's largest online ticket booking service trusted by over 1 million happy
+      <p> booking go is the world's top rated online ticket booking service trusted by over 1 million happy
         customers globally. we offer ticket booking through our website, iOS and Android mobile apps for all
         major routes. </p>
     </div>
     <div class="col-lg-3 pt-4">
       <h5 class="pb-2">important link</h5>
       <p>
-        <a href="/Bookinggo/ComplaintsPage/Complaints.jsp" class="link-light text-decoration-none">help</a><br>
-                     <a href="http://localhost:8080/Bookinggo/AboutUs/Aboutus.jsp" class="link-light text-decoration-none">about us</a><br>
-                    <a href="http://localhost:8080/Bookinggo/Feedback/feedback.jsp" class="link-light text-decoration-none">feedback</a><br>
-                    
+        <a href="#" class="link-light text-decoration-none">TERMS & CO.</a><br>
+        <a href="#" class="link-light text-decoration-none">policy</a><br>
+        <a href="#" class="link-light text-decoration-none">safty guide</a><br>
+        <a href="#" class="link-light text-decoration-none">sitemap</a><br>
       </p>
     </div>
     <div class="col-lg-3 pt-4">
@@ -293,4 +275,3 @@
   crossorigin="anonymous"></script>                           
 </body>
 </html>
-

@@ -161,10 +161,10 @@
                 <div class="col-lg-3 pt-4">
                   <h5 class="pb-2">important link</h5>
                   <p>
-                    <a href="#" class="link-light text-decoration-none">TERMS & CO.</a><br>
-                    <a href="#" class="link-light text-decoration-none">policy</a><br>
-                    <a href="#" class="link-light text-decoration-none">safty guide</a><br>
-                    <a href="#" class="link-light text-decoration-none">sitemap</a><br>
+                    <a href="/Bookinggo/ComplaintsPage/Complaints.jsp" class="link-light text-decoration-none">help</a><br>
+                     <a href="http://localhost:8080/Bookinggo/AboutUs/Aboutus.jsp" class="link-light text-decoration-none">about us</a><br>
+                    <a href="http://localhost:8080/Bookinggo/Feedback/feedback.jsp" class="link-light text-decoration-none">feedback</a><br>
+                    
                   </p>
                 </div>
                 <div class="col-lg-3 pt-4">
