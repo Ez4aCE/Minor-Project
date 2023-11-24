@@ -58,6 +58,21 @@
     }
 </script>
 <script>
+    function redirectTotraind() {
+        window.open('/Bookinggo/TableDisplayer/TRAINDETAILS.jsp');
+    }
+</script>
+<script>
+    function redirectTocard() {
+        window.open('/Bookinggo/TableDisplayer/CARDETAILS.jsp');
+    }
+</script>
+<script>
+    function redirectTofeedback() {
+        window.open('/Bookinggo/TableDisplayer/FEEDBACKLOG.jsp');
+    }
+</script>
+<script>
     function logout() {
         window.location.href ='http://localhost:8080/Bookinggo/AdminLogOut';
     }
@@ -86,6 +101,18 @@
         
 <button class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button" onclick="redirectTocar()">
         booked cars
+      </button>
+        
+        <button class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button" onclick="redirectTotraind()">
+         train details   
+      </button>
+        
+        <button class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button" onclick="redirectTocard()">
+         car details
+      </button>
+        
+        <button class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button" onclick="redirectTofeedback()">
+         Feedback details
       </button>
         
         <button class="d-inline-flex align-items-center btn btn-danger btn-lg px-4 rounded-pill" type="button" onclick="logout()">

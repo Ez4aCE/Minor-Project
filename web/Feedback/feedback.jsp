@@ -127,7 +127,7 @@
           <section>
     <p>Have a  feedback for us? Please fill out the form below. </p>
 
-    <form action="" method="POST">
+    <form action="http://localhost:8080/Bookinggo/FeedBackLog" method="POST">
         <label for="name">Your Name:</label>
         <input type="text" id="name" name="name" required>
 
@@ -135,7 +135,7 @@
         <input type="email" id="email" name="email" required>
 
         <label for="complaint">Feedback:</label>
-        <textarea id="complaint" name="complaint" rows="4" required></textarea>
+        <textarea id="complaint" name="content" rows="4" required></textarea>
 
         <button type="submit">Submit</button>
     </form>

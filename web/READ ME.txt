@@ -136,7 +136,7 @@ CREATE TABLE ADMINDETAILS(
 );
 
 INSERT INTO ADMINDETAILS
-VALUES (1, 'ADMIN', 'PASSWORD', 'bookinggominorproject@gmail.com');
+VALUES (1, 'ADMIN', 'ADMIN', 'bookinggominorproject@gmail.com');
 
 
 ------------------------------------booked tickets details -------------------------------
@@ -216,4 +216,9 @@ END;
 /
 
 
+CREATE TABLE FEEDLOG (
+    NAME VARCHAR2(20),
+    EMAIL VARCHAR2(50) NOT NULL,
+    CONTENT VARCHAR2(500)
+);
 

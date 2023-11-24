@@ -40,6 +40,10 @@
         <servlet-name>AdminLogOut</servlet-name>
         <servlet-class>MinorProjectBackend.AdminLogOut</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FeedBackLog</servlet-name>
+        <servlet-class>MinorProjectBackend.FeedBackLog</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SessLogOut</servlet-name>
         <url-pattern>/SessLogOut</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>AdminLogOut</servlet-name>
         <url-pattern>/AdminLogOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FeedBackLog</servlet-name>
+        <url-pattern>/FeedBackLog</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

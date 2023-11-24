@@ -30,6 +30,16 @@
             color: #333;
         }
 
+        .team-members {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.team-member {
+    text-align: center;
+    margin: 0 10px;
+}
         
 
         section {
@@ -53,7 +63,10 @@
             line-height: 1.6;
         }
 
-        
+        .pro{
+            height: 200px;
+            width:100px
+        }
 
         
     </style>
@@ -129,11 +142,46 @@
 
 
 <section>
+    
+        <img src="/Bookinggo/image/logo.png" alt="BookingGo Logo" style="height:50px;">
+
     <p>Welcome to BookingGo, your go-to platform for hassle-free travel experiences! At BookingGo, we believe in making your journey memorable by providing seamless booking services for trains, cars, and more.</p>
 
     <p>Our mission is to simplify your travel plans, offering a range of options that cater to your preferences. Whether you're a frequent traveler or planning a special trip, BookingGo has you covered.</p>
 
-    <img src="/Bookinggo/image/logo.png" alt="BookingGo Logo" style="height:50px;">
+    <h2>OUR TEAM</h2>
+    
+<div class="team-members">
+    <div class="team-member" style="margin-right:800px;">
+        <img src="/Bookinggo/image/leader.jpeg" alt="BookingGo Logo" class="pro">CEO
+        <p>Souradeep Das</p>
+    </div>
+    
+    <div class="team-member">
+        <img src="/Bookinggo/image/aditya_ayush.jpeg" alt="BookingGo Logo" class="pro">
+        <p>Aditya Ayush</p>
+    </div>
+
+    <div class="team-member">
+        <img src="/Bookinggo/image/aaditya_kumar.jpeg" alt="BookingGo Logo" class="pro">
+        <p>Aaditya Kumar</p>
+    </div>
+
+    <div class="team-member">
+        <img src="/Bookinggo/image/himanshu.jpeg" alt="BookingGo Logo" class="pro">
+        <p>Himanshu Rai</p>
+    </div>
+
+    <div class="team-member">
+        <img src="/Bookinggo/image/aniket.jpeg" alt="BookingGo Logo" class="pro">
+        <p>Aniket Kumar Sisodiya</p>
+    </div>
+
+    <div class="team-member">
+        <img src="/Bookinggo/image/titas.jpeg" alt="BookingGo Logo" class="pro">
+        <p>Titas Dey</p>
+    </div>
+</div>
 
     <p>Why choose BookingGo?</p>
 
@@ -147,6 +195,8 @@
     <p>Join BookingGo today and embark on a journey where convenience meets excellence. Your adventure begins with us!</p>
     
 </section>
+                    
+                    
 
     <div class="container-fluid">    
     
