@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>CAR Record Displayer</title>
+        <title>Feedback Record Displayer</title>
         <!--STEP 2: ADDING A INTERNAL STYLE FOR TABLE-->
          <style>
                 table, tr, td
@@ -30,6 +30,8 @@
         // STEP 3: DECLARING OBJECTS AND VARIABLES
             OracleConnection oconn;
             OraclePreparedStatement ops;
+            OraclePreparedStatement opt;
+
             OracleResultSet ors;
             OracleResultSetMetaData orsmd;
             int counter, reccounter, colcounter;
@@ -49,8 +51,43 @@
             
             // STEP 8: GETTING THE COLUMNS INFORMATION(METADATA)
             orsmd = (OracleResultSetMetaData)ors.getMetaData();
+            
+            
+            
+            if(request.getParameter("bConfirm")!=null)
+            {              
+                   String name = request.getParameter("name");
+                   opt =(OraclePreparedStatement) oconn.prepareStatement("DELETE FROM FEEDLOG WHERE NAME=?");
+                   opt.setString(1, name);
+                   int x = opt.executeUpdate();
+                   
+                   if(x>0){
+                   response.sendRedirect("http://localhost:8080/Bookinggo/TableDisplayer/FEEDBACKLOG.jsp");
+                    return;
+                   }
+                   opt.close();
+                   oconn.close();
+                     
+            }
+            
+            else
+            {
+                   %>
+                   <h3 style="color: blueviolet">
+                   below is feedback details.
+                   </h3>
+                    <%
+                   
+            }   
+
+
             %>
-    <body style="background-color: black">
+            
+            
+            
+           
+            
+ <body style="background-color: black">
         <!--STEP 1: BASIC STRUCTURE OF A TABLE-->
         <table>
             <thead>
@@ -63,7 +100,9 @@
                         <th><%=orsmd.getColumnName(counter)%></th>
                         <%
                             }
-                        %>
+                        %>            
+       
+                       <th>ACTION</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,6 +120,12 @@
                         <%
                             }
                         %>
+ <td>
+    <form method="post" action="http://localhost:8080/Bookinggo/TableDisplayer/FEEDBACKLOG.jsp"> 
+        <input type="hidden" name="name" value="<%=ors.getString("NAME")%>">
+        <button type="submit" class="btn btn-danger" name="bConfirm">delete</button>
+    </form>
+</td>                       
                 </tr>
                 <%
                     }
