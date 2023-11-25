@@ -37,6 +37,7 @@
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
+            height: 100vh;
             background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,0.1) 42%, rgba(92,202,238,0.20) 93.6% );
     box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
@@ -60,7 +61,7 @@
 <!-- navbar -->
 
             <header class="p-3  border-bottom " id="nav">
-              <div class="container">
+              <div class="container-fluid">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                   <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
                     <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
@@ -147,8 +148,7 @@
           
           
             
-    <div class="container-fluid">    
-
+<div class="container-fluid">
  
          <!-- footer  -->
               <div class="row justify-content-evenly bg-dark text-white pt-3 pb-5">
@@ -185,7 +185,7 @@
               </div>
 
               <!-- closing div  -->
-            </div>
+</div>          
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
               integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
               crossorigin="anonymous"></script>

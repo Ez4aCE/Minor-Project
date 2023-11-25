@@ -3,20 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/H:/Bookinggo/Bookinggo/web/UserLogin/UserLogin.html</file>
+            <file>file:/H:/Bookinggo/Bookinggo/web/Feedback/feedback.jsp</file>
             <file>file:/H:/Bookinggo/Bookinggo/web/READ%20ME.txt</file>
-            <file>file:/H:/Bookinggo/Bookinggo/src/java/MinorProjectBackend/SessLogOut.java</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/forgotpassword/WrongEmail.html</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/profilepage/Profile.jsp</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/forgotpassword/NewPassword.jsp</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/profilepage/profile.html</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/HomePage/Home.jsp</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/HomePage/BookTrain.jsp</file>
-            <file>file:/H:/Bookinggo/Bookinggo/src/java/MinorProjectBackend/SessServe.java</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/UserLogin/VerifyOTP.jsp</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/HomePage/ProcessPayment.jsp</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/TableDisplayer/newjsp.jsp</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/forgotpassword/VerifyQues.jsp</file>
-            <file>file:/H:/Bookinggo/Bookinggo/web/HomePage/fill.jsp</file>
+            <file>file:/H:/Bookinggo/Bookinggo/web/AboutUs/Aboutus.jsp</file>
+            <file>file:/H:/Bookinggo/Bookinggo/web/index.jsp</file>
+            <file>file:/H:/Bookinggo/Bookinggo/web/ComplaintsPage/Complaints.jsp</file>
         </group>
     </open-files>
 </project-private>

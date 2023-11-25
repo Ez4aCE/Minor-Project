@@ -49,10 +49,17 @@
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
+            height: 150vh;
+            overflow: hidden;
+
             background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,0.1) 42%, rgba(92,202,238,0.20) 93.6% );
     box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 15px 51px 0px rgba(0,0,0,0.75);
+        }
+        
+        .enable-scroll {
+            overflow: auto; /* Enable scroll bars */
         }
 
         h1 {

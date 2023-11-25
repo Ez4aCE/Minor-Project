@@ -20,6 +20,14 @@
 <html>
 <head>
     <title>admin Session</title>
+<script type="text/javascript">
+    // Disable back button
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.URL);
+        window.location.replace("http://localhost:8080/Bookinggo/AdminLogOut");
+    });
+</script>
 </head>
 <body>
 

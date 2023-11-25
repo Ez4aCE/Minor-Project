@@ -20,6 +20,12 @@
     <!-- css  -->
     <link rel="stylesheet" href="http://localhost:8080/Bookinggo/HomePage/hp.css">
     <link rel="stylesheet" href="http://localhost:8080/Bookinggo/HomePage/filter.css">
+    
+    <style>
+        .enable-scroll {
+            overflow: auto; /* Enable scroll bars */
+        }
+    </style>
 </head>
 
 <%
@@ -138,7 +144,7 @@
 
         <!--STEP 1: BASIC STRUCTURE OF A TABLE-->
 
-        <div class="row justify-content-evenly" id="tablea">
+        <div class="row justify-content-evenly" id="tablea" style="height: 80vh; overflow:hidden;">
             <div class="col-12">
 
                 <table class="table table-hover mt-4 mb-4 table-bordered border-dark" id="result">

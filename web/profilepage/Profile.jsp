@@ -29,19 +29,28 @@
         // STEP 3: DECLARING OBJECTS AND VARIABLES
             OracleConnection oconn;
             OraclePreparedStatement ops;
+                        OraclePreparedStatement opt;
+
             OracleResultSet ors;
+                        OracleResultSet orr;
+
             OracleResultSetMetaData orsmd;
+                        OracleResultSetMetaData orsmdc;
+
             int counter, reccounter, colcounter;
             String date, departureStation, arrivalStation, trainName,nop ;
             int id,trainId,trainPrice;
+            String ids = null;
         %>
         
       <%! String name,email; %>
         <% HttpSession se=request.getSession(false);
         try {
             if(se!=null){
-            name = se.getAttribute("sname").toString();
-            email = se.getAttribute("EMAIL").toString();   
+           name = se.getAttribute("sname").toString();
+            email = se.getAttribute("EMAIL").toString();        
+           ids =  se.getAttribute("userid").toString();
+           int userid = Integer.parseInt(ids); 
             }
           } catch(Exception ex) { %>
           <script>
@@ -60,9 +69,9 @@
             departureStation = request.getParameter("departure");
             date = request.getParameter("date");
             nop = request.getParameter("nop");
-                     
+            String i = "1";
+         
             arrivalStation = request.getParameter("arrival"); 
-            String ids = "1";
             
             // STEP 4: REGISTRATION OF ORACLE DRIVER
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
@@ -112,7 +121,8 @@
 
         <div class="tab">
             <button class="tablinks" onclick="openCity(event, 'profile')">profile</button>
-            <button class="tablinks" onclick="openCity(event, 'history')">my bookings</button>
+            <button class="tablinks" onclick="openCity(event, 'history')">my train bookings</button>
+            <button class="tablinks" onclick="openCity(event, 'history car')">my car bookings</button>            
             <button class="tablinks" onclick="openCity(event, 'security')">security</button>
             <button class="tablinks" onclick="openCity(event, 'logout')">log out</button>
         </div>
@@ -137,7 +147,7 @@
         
     <div id="history" hidden class="tabcontent">
         
-        <h3>MY BOOKING</h3>
+        <h3>MY TRAIN BOOKING</h3>
        
         
         <table class="table table-hover table-bordered border-dark" id="result">
@@ -188,6 +198,78 @@
         
         
     </div>
+  
+ <%           
+    opt = (OraclePreparedStatement)oconn.prepareCall("SELECT * FROM BOOKEDCARS WHERE ID=?");
+            opt.setString(1, ids);
+              
+            // STEP 7: FILLING UP THE DATABASE RECORDS IN A TEMPORARY CONTAINER
+            orr = (OracleResultSet)opt.executeQuery();
+            
+            // STEP 8: GETTING THE COLUMNS INFORMATION(METADATA)
+            orsmdc = (OracleResultSetMetaData)orr.getMetaData();         
+            
+            
+            
+  %> 
+  
+  
+  
+ <div id="history car" hidden class="tabcontent">
+        
+        <h3>MY CAR BOOKING</h3>
+       
+        
+        <table class="table table-hover table-bordered border-dark" id="result">
+            <thead>
+                <tr class="table-dark">
+                    <%
+                        // STEP 9: BRINGING THE TABLE HEADINGS
+                        for(counter = 1; counter <= orsmdc.getColumnCount(); counter ++)
+                        {
+                        %>
+                        <th><%=orsmdc.getColumnName(counter)%></th>
+                        <%
+                            }
+                        %>
+                     <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <%
+                    // STEP 10: BRINGING ALL THE RECORDS AND DISPLAYING AS TABLE ROWS
+                    while(orr.next() == true)
+                    {
+                    %>
+                <tr>
+                    <%
+                       for(counter = 1; counter <= orsmdc.getColumnCount(); counter ++)
+                        {
+                        %>
+                        <th><%=orr.getString(counter)%></th>
+                        <%
+                            }
+                        %>
+                   <td></td>
+
+                </tr>
+                <%
+                    }
+                    %>
+            </tbody>
+            <tfoot>
+                <tr>
+                
+                </tr>
+            </tfoot>
+        </table>
+                    
+        
+        
+        
+    </div>           
+            
+            
 
             
     <div id="security" hidden class="tabcontent" style="margin-left: 150px">
